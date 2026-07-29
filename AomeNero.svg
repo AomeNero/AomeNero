@@ -1,60 +1,605 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="320" viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- 浅色手绘风背景 -->
-    <rect id="bg2" width="1200" height="400" fill="#f6f8fa"/>
+    <!-- 背景：白色微渐变 -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#f7f7f7"/>
+      <stop offset="100%" stop-color="#fdfdfd"/>
+    </linearGradient>
+
+    <!-- 文字主渐变：墨色流动 -->
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#111111"/>
+      <stop offset="25%" stop-color="#555555"/>
+      <stop offset="50%" stop-color="#1a1a1a"/>
+      <stop offset="75%" stop-color="#777777"/>
+      <stop offset="100%" stop-color="#111111"/>
+      <animate attributeName="x1" values="0%;100%;0%" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="100%;200%;100%" dur="8s" repeatCount="indefinite"/>
+    </linearGradient>
+
+    <!-- 边缘白色渐晕 -->
+    <radialGradient id="vignette" cx="50%" cy="50%" r="75%">
+      <stop offset="58%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.55"/>
+    </radialGradient>
+
+    <!-- 8 个字母专属渐变色 -->
+    <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4facfe"/><stop offset="100%" stop-color="#00f2fe"/>
+    </linearGradient>
+    <linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f7971e"/><stop offset="100%" stop-color="#ffd200"/>
+    </linearGradient>
+    <linearGradient id="lg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7"/><stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="lg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#11998e"/><stop offset="100%" stop-color="#38ef7d"/>
+    </linearGradient>
+    <linearGradient id="lg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f12711"/><stop offset="100%" stop-color="#f5af19"/>
+    </linearGradient>
+    <linearGradient id="lg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#667eea"/><stop offset="100%" stop-color="#764ba2"/>
+    </linearGradient>
+    <linearGradient id="lg7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff0844"/><stop offset="100%" stop-color="#ffb199"/>
+    </linearGradient>
+    <linearGradient id="lg8" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fc466b"/><stop offset="100%" stop-color="#3f5efb"/>
+    </linearGradient>
+
+    <!-- 柔光滤镜 -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- 30 种语言的 Hello, World!（逐行独立，错落滚动） -->
+    <text id="hw01" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="11.5" fill="#111111">[JavaScript] console.log("Hello, World!");</text>
+    <text id="hw02" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="11.5" fill="#111111">[Python] print("Hello, World!")</text>
+    <text id="hw03" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="12.5" fill="#111111">[Java] System.out.println("Hello, World!");</text>
+    <text id="hw04" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="12" fill="#111111">[TypeScript] console.log("Hello, World!");</text>
+    <text id="hw05" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="12" fill="#111111">[C#] Console.WriteLine("Hello, World!");</text>
+    <text id="hw06" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="12" fill="#111111">[C++] std::cout &lt;&lt; "Hello, World!";</text>
+    <text id="hw07" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="11.5" fill="#111111">[PHP] echo "Hello, World!";</text>
+    <text id="hw08" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="13.5" fill="#111111">[C] printf("Hello, World!
+");</text>
+    <text id="hw09" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="11.5" fill="#111111">[Bash] echo "Hello, World!"</text>
+    <text id="hw10" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="13.5" fill="#111111">[Go] fmt.Println("Hello, World!")</text>
+    <text id="hw11" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="13" fill="#111111">[Ruby] puts "Hello, World!"</text>
+    <text id="hw12" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="11.5" fill="#111111">[Rust] println!("Hello, World!");</text>
+    <text id="hw13" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="11.5" fill="#111111">[Swift] print("Hello, World!")</text>
+    <text id="hw14" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="11.5" fill="#111111">[Kotlin] println("Hello, World!")</text>
+    <text id="hw15" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="12" fill="#111111">[Dart] print("Hello, World!");</text>
+    <text id="hw16" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="12" fill="#111111">[Lua] print("Hello, World!")</text>
+    <text id="hw17" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="13.5" fill="#111111">[R] cat("Hello, World!
+")</text>
+    <text id="hw18" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="13.5" fill="#111111">[Objective-C] NSLog(@"Hello, World!");</text>
+    <text id="hw19" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="11.5" fill="#111111">[Scala] println("Hello, World!")</text>
+    <text id="hw20" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="13.5" fill="#111111">[Perl] print "Hello, World!
+";</text>
+    <text id="hw21" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="12" fill="#111111">[PowerShell] Write-Host "Hello, World!"</text>
+    <text id="hw22" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="13.5" fill="#111111">[MATLAB] disp('Hello, World!')</text>
+    <text id="hw23" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="13" fill="#111111">[Haskell] putStrLn "Hello, World!"</text>
+    <text id="hw24" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="12" fill="#111111">[Groovy] println "Hello, World!"</text>
+    <text id="hw25" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="13" fill="#111111">[Julia] println("Hello, World!")</text>
+    <text id="hw26" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="13.5" fill="#111111">[Elixir] IO.puts "Hello, World!"</text>
+    <text id="hw27" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="12.5" fill="#111111">[Assembly] msg DB 'Hello, World!$'</text>
+    <text id="hw28" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="11.5" fill="#111111">[VB.NET] Console.WriteLine("Hello, World!")</text>
+    <text id="hw29" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="12" fill="#111111">[SQL] SELECT 'Hello, World!';</text>
+    <text id="hw30" font-family="'JetBrains Mono', 'Fira Code', Consolas, Menlo, monospace" font-size="13" fill="#111111">[Pascal] writeln('Hello, World!');</text>
   </defs>
 
-  <!-- 背景色 -->
-  <use href="#bg2"/>
+  <style>
+    .title { font-family: 'Segoe UI','Helvetica Neue',Arial,sans-serif; }
+    @keyframes floatY { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    @keyframes twinkle { 0%,100% { opacity: .08; } 50% { opacity: .5; } }
+    @keyframes rise { 0% { transform: translateY(0); opacity: 0; } 12% { opacity: .35; } 88% { opacity: .35; } 100% { transform: translateY(-340px); opacity: 0; } }
+    @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+    @keyframes waveMove { from { transform: translateX(0); } to { transform: translateX(-240px); } }
+    @keyframes orbitPulse { 0%,100% { opacity: .18; } 50% { opacity: .45; } }
+    @keyframes subtitleFade { 0% { opacity: 0; transform: translateY(8px); } 100% { opacity: .85; transform: translateY(0); } }
+    @keyframes codeScroll { from { transform: translateY(0); } to { transform: translateY(-960px); } }
+    .particle { animation: rise linear infinite; }
+    .star { animation: twinkle ease-in-out infinite; }
 
-  <!-- 手绘线条装饰 -->
-  <path d="M 50 50 C 150 20, 250 80, 350 50" stroke="#24292e" stroke-width="2" fill="none" opacity="0.3">
-    <animate attributeName="stroke-dasharray" values="0, 500; 500, 0; 0, 500" dur="12s" repeatCount="indefinite"/>
-  </path>
-  <path d="M 850 350 C 950 320, 1050 380, 1150 350" stroke="#24292e" stroke-width="2" fill="none" opacity="0.3">
-    <animate attributeName="stroke-dasharray" values="0, 500; 500, 0; 0, 500" dur="15s" repeatCount="indefinite"/>
-  </path>
+    /* ===== 海鸥 ===== */
+    /* 生动扑翼：翅膀先高举，快速下压扇动，再缓慢回抬（非对称节奏） */
+    @keyframes flapL {
+      0%,100% { transform: rotate(15deg); }
+      30% { transform: rotate(-32deg); }
+      62% { transform: rotate(2deg); }
+    }
+    @keyframes flapR {
+      0%,100% { transform: rotate(-15deg); }
+      30% { transform: rotate(32deg); }
+      62% { transform: rotate(-2deg); }
+    }
+    .wingL { animation: flapL 1s ease-in-out infinite; transform-box: fill-box; transform-origin: 100% 50%; }
+    .wingR { animation: flapR 1s ease-in-out infinite; transform-box: fill-box; transform-origin: 0% 50%; }
 
-  <!-- 手绘图标 -->
-  <!-- 终端图标 -->
-  <g transform="translate(100, 150)" stroke="#24292e" stroke-width="2" fill="none">
-    <rect x="0" y="0" width="60" height="45" rx="5"/>
-    <path d="M 10 15 L 20 22.5 L 10 30" stroke-width="2.5"/>
-    <line x1="25" y1="30" x2="40" y2="30" stroke-width="2.5"/>
-     <animateTransform attributeName="transform" type="translate" values="100, 150; 102, 152; 100, 150" dur="5s" repeatCount="indefinite"/>
+    /* 身体随翅膀起伏：下压时身体略沉，回抬时略升 */
+    @keyframes gullBobK {
+      0%,100% { transform: translateY(0); }
+      30% { transform: translateY(2px); }
+      62% { transform: translateY(-1.2px); }
+    }
+    .gullBob { animation: gullBobK 1s ease-in-out infinite; }
+
+    /* 缓慢盘旋漂移 + 滑翔侧倾 */
+    @keyframes driftA { 0%,100% { transform: translate(0,0) rotate(0deg); } 25% { transform: translate(16px,-7px) rotate(4deg); } 50% { transform: translate(34px,2px) rotate(0deg); } 75% { transform: translate(15px,8px) rotate(-4deg); } }
+    @keyframes driftB { 0%,100% { transform: translate(0,0) rotate(0deg); } 30% { transform: translate(-20px,6px) rotate(-5deg); } 60% { transform: translate(-34px,-4px) rotate(0deg); } 80% { transform: translate(-14px,-9px) rotate(4deg); } }
+    @keyframes driftC { 0%,100% { transform: translate(0,0) rotate(0deg); } 35% { transform: translate(12px,9px) rotate(5deg); } 70% { transform: translate(-10px,4px) rotate(-3deg); } }
+    .driftA { animation: driftA 17s ease-in-out infinite; }
+    .driftB { animation: driftB 21s ease-in-out infinite; }
+    .driftC { animation: driftC 14s ease-in-out infinite; }
+
+    /* ===== 小船摇曳 ===== */
+    /* 缓慢来回漂移（40s 一轮，永不离开画面） */
+    @keyframes boatDrift { 0%,100% { transform: translateX(260px); } 50% { transform: translateX(920px); } }
+    .boatMove { animation: boatDrift 40s ease-in-out infinite; }
+
+    /* 随浪起伏：摇晃 + 上下浮沉 */
+    @keyframes boatRockK {
+      0%,100% { transform: translateY(0) rotate(-3.5deg); }
+      25% { transform: translateY(-3px) rotate(-1deg); }
+      50% { transform: translateY(0) rotate(3.5deg); }
+      75% { transform: translateY(3px) rotate(1deg); }
+    }
+    .boatRock { animation: boatRockK 4.6s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 80%; }
+
+
+    /* ===== 字母报号表演（9s 一轮，每个字母 0.85s  stagger） ===== */
+    .L {
+      font-family: 'Segoe UI','Helvetica Neue',Arial,sans-serif;
+      font-size: 96px; font-weight: 800;
+      fill: url(#textGrad);
+      transform-box: fill-box;
+      transform-origin: 50% 100%;
+    }
+    @keyframes letterIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* A —— 小跳 + 青蓝渐变 */
+    @keyframes kHop {
+      0% { transform: translateY(0); fill: #111111; }
+      3.5% { transform: translateY(-14px); fill: url(#lg1); }
+      7% { transform: translateY(0); fill: url(#lg1); }
+      8.5% { transform: translateY(-5px); fill: url(#lg1); }
+      10% { transform: translateY(0); fill: #111111; }
+      100% { transform: translateY(0); fill: #111111; }
+    }
+    /* o —— 大跳（蓄力下蹲→高跳→落地回弹）+ 橙金渐变 */
+    @keyframes kBigJump {
+      0% { transform: translateY(0) scaleY(1); fill: #111111; }
+      2% { transform: translateY(3px) scaleY(.82); fill: url(#lg2); }
+      5.5% { transform: translateY(-42px) scaleY(1.06); fill: url(#lg2); }
+      9% { transform: translateY(0) scaleY(.88); fill: url(#lg2); }
+      11% { transform: translateY(0) scaleY(1); fill: #111111; }
+      100% { transform: translateY(0) scaleY(1); fill: #111111; }
+    }
+    /* m —— 歪头 + 紫粉渐变 */
+    @keyframes kTilt {
+      0% { transform: rotate(0deg); fill: #111111; }
+      3% { transform: rotate(-14deg); fill: url(#lg3); }
+      6% { transform: rotate(10deg); fill: url(#lg3); }
+      8.5% { transform: rotate(-4deg); fill: url(#lg3); }
+      10.5% { transform: rotate(0deg); fill: #111111; }
+      100% { transform: rotate(0deg); fill: #111111; }
+    }
+    /* e —— S 扭动 + 翠绿渐变 */
+    @keyframes kWiggle {
+      0% { transform: translateX(0) rotate(0deg); fill: #111111; }
+      2% { transform: translateX(-7px) rotate(-8deg); fill: url(#lg4); }
+      4% { transform: translateX(7px) rotate(8deg); fill: url(#lg4); }
+      6% { transform: translateX(-6px) rotate(-6deg); fill: url(#lg4); }
+      8% { transform: translateX(5px) rotate(5deg); fill: url(#lg4); }
+      10% { transform: translateX(-2px) rotate(-2deg); fill: url(#lg4); }
+      11.5% { transform: translateX(0) rotate(0deg); fill: #111111; }
+      100% { transform: translateX(0) rotate(0deg); fill: #111111; }
+    }
+    /* N —— 蹲起 + 红橙渐变 */
+    @keyframes kSquat {
+      0% { transform: scale(1,1); fill: #111111; }
+      3% { transform: scale(1.18,.68); fill: url(#lg5); }
+      6% { transform: scale(.94,1.12); fill: url(#lg5); }
+      9% { transform: scale(1.04,.94); fill: url(#lg5); }
+      11% { transform: scale(1,1); fill: #111111; }
+      100% { transform: scale(1,1); fill: #111111; }
+    }
+    /* e —— 放大一下 + 蓝紫渐变 */
+    @keyframes kPop {
+      0% { transform: scale(1); fill: #111111; }
+      4% { transform: scale(1.4); fill: url(#lg6); }
+      7% { transform: scale(.96); fill: url(#lg6); }
+      10% { transform: scale(1); fill: #111111; }
+      100% { transform: scale(1); fill: #111111; }
+    }
+    /* r —— 点头 + 玫红渐变 */
+    @keyframes kNod {
+      0% { transform: rotate(0deg); transform-origin: 50% 0%; fill: #111111; }
+      2.5% { transform: rotate(9deg); fill: url(#lg7); }
+      5% { transform: rotate(-3deg); fill: url(#lg7); }
+      7.5% { transform: rotate(7deg); fill: url(#lg7); }
+      10.5% { transform: rotate(0deg); fill: #111111; }
+      100% { transform: rotate(0deg); fill: #111111; }
+    }
+    /* o —— 变色（粉蓝渐变）然后恢复 */
+    @keyframes kColor {
+      0% { fill: #111111; transform: scale(1); }
+      3% { fill: url(#lg8); transform: scale(1.12); }
+      8% { fill: url(#lg8); transform: scale(1.12); }
+      12% { fill: #111111; transform: scale(1); }
+      100% { fill: #111111; transform: scale(1); }
+    }
+
+    .L1 { animation: letterIn .5s ease .1s both,  kHop     9s ease-in-out 1s    infinite; }
+    .L2 { animation: letterIn .5s ease .2s both,  kBigJump 9s ease-in-out 1.85s infinite; }
+    .L3 { animation: letterIn .5s ease .3s both,  kTilt    9s ease-in-out 2.7s  infinite; }
+    .L4 { animation: letterIn .5s ease .4s both,  kWiggle  9s ease-in-out 3.55s infinite; }
+    .L5 { animation: letterIn .5s ease .5s both,  kSquat   9s ease-in-out 4.4s  infinite; }
+    .L6 { animation: letterIn .5s ease .6s both,  kPop     9s ease-in-out 5.25s infinite; }
+    .L7 { animation: letterIn .5s ease .7s both,  kNod     9s ease-in-out 6.1s  infinite; }
+    .L8 { animation: letterIn .5s ease .8s both,  kColor   9s ease-in-out 6.95s infinite; }
+  </style>
+
+  <!-- 背景 -->
+  <rect width="1200" height="320" fill="url(#bgGrad)"/>
+
+  <!-- 背景代码：30 种语言 Hello World，每行 2~3 组 · 横向随机 · 等距同速上滚 -->
+  <g>
+    <g style="animation: codeScroll 36s linear infinite;">
+      <use href="#hw01" x="21" y="0" opacity="0.18"/>
+      <use href="#hw01" x="388" y="0" opacity="0.21"/>
+      <use href="#hw01" x="836" y="0" opacity="0.21"/>
+      <use href="#hw02" x="250" y="32" opacity="0.17"/>
+      <use href="#hw02" x="515" y="32" opacity="0.18"/>
+      <use href="#hw02" x="956" y="32" opacity="0.17"/>
+      <use href="#hw03" x="384" y="64" opacity="0.21"/>
+      <use href="#hw03" x="803" y="64" opacity="0.18"/>
+      <use href="#hw04" x="110" y="96" opacity="0.16"/>
+      <use href="#hw04" x="690" y="96" opacity="0.17"/>
+      <use href="#hw05" x="66" y="128" opacity="0.17"/>
+      <use href="#hw05" x="404" y="128" opacity="0.19"/>
+      <use href="#hw05" x="877" y="128" opacity="0.21"/>
+      <use href="#hw06" x="274" y="160" opacity="0.17"/>
+      <use href="#hw06" x="623" y="160" opacity="0.2"/>
+      <use href="#hw06" x="927" y="160" opacity="0.16"/>
+      <use href="#hw07" x="88" y="192" opacity="0.17"/>
+      <use href="#hw07" x="403" y="192" opacity="0.17"/>
+      <use href="#hw07" x="703" y="192" opacity="0.2"/>
+      <use href="#hw08" x="159" y="224" opacity="0.17"/>
+      <use href="#hw08" x="590" y="224" opacity="0.19"/>
+      <use href="#hw08" x="923" y="224" opacity="0.22"/>
+      <use href="#hw09" x="50" y="256" opacity="0.17"/>
+      <use href="#hw09" x="338" y="256" opacity="0.18"/>
+      <use href="#hw09" x="804" y="256" opacity="0.16"/>
+      <use href="#hw10" x="44" y="288" opacity="0.19"/>
+      <use href="#hw10" x="404" y="288" opacity="0.19"/>
+      <use href="#hw10" x="787" y="288" opacity="0.19"/>
+      <use href="#hw11" x="20" y="320" opacity="0.16"/>
+      <use href="#hw11" x="396" y="320" opacity="0.2"/>
+      <use href="#hw11" x="904" y="320" opacity="0.17"/>
+      <use href="#hw12" x="255" y="352" opacity="0.18"/>
+      <use href="#hw12" x="549" y="352" opacity="0.21"/>
+      <use href="#hw12" x="941" y="352" opacity="0.2"/>
+      <use href="#hw13" x="238" y="384" opacity="0.2"/>
+      <use href="#hw13" x="680" y="384" opacity="0.19"/>
+      <use href="#hw13" x="968" y="384" opacity="0.2"/>
+      <use href="#hw14" x="151" y="416" opacity="0.19"/>
+      <use href="#hw14" x="438" y="416" opacity="0.18"/>
+      <use href="#hw14" x="737" y="416" opacity="0.2"/>
+      <use href="#hw15" x="267" y="448" opacity="0.22"/>
+      <use href="#hw15" x="534" y="448" opacity="0.2"/>
+      <use href="#hw15" x="940" y="448" opacity="0.17"/>
+      <use href="#hw16" x="75" y="480" opacity="0.19"/>
+      <use href="#hw16" x="399" y="480" opacity="0.17"/>
+      <use href="#hw16" x="678" y="480" opacity="0.21"/>
+      <use href="#hw17" x="70" y="512" opacity="0.2"/>
+      <use href="#hw17" x="382" y="512" opacity="0.19"/>
+      <use href="#hw17" x="878" y="512" opacity="0.22"/>
+      <use href="#hw18" x="189" y="544" opacity="0.2"/>
+      <use href="#hw18" x="586" y="544" opacity="0.18"/>
+      <use href="#hw19" x="153" y="576" opacity="0.19"/>
+      <use href="#hw19" x="468" y="576" opacity="0.21"/>
+      <use href="#hw19" x="934" y="576" opacity="0.22"/>
+      <use href="#hw20" x="28" y="608" opacity="0.18"/>
+      <use href="#hw20" x="504" y="608" opacity="0.2"/>
+      <use href="#hw20" x="901" y="608" opacity="0.17"/>
+      <use href="#hw21" x="28" y="640" opacity="0.19"/>
+      <use href="#hw21" x="394" y="640" opacity="0.18"/>
+      <use href="#hw21" x="823" y="640" opacity="0.17"/>
+      <use href="#hw22" x="112" y="672" opacity="0.17"/>
+      <use href="#hw22" x="485" y="672" opacity="0.17"/>
+      <use href="#hw22" x="921" y="672" opacity="0.19"/>
+      <use href="#hw23" x="90" y="704" opacity="0.22"/>
+      <use href="#hw23" x="423" y="704" opacity="0.18"/>
+      <use href="#hw23" x="880" y="704" opacity="0.16"/>
+      <use href="#hw24" x="275" y="736" opacity="0.18"/>
+      <use href="#hw24" x="555" y="736" opacity="0.16"/>
+      <use href="#hw24" x="898" y="736" opacity="0.18"/>
+      <use href="#hw25" x="301" y="768" opacity="0.19"/>
+      <use href="#hw25" x="609" y="768" opacity="0.21"/>
+      <use href="#hw25" x="919" y="768" opacity="0.2"/>
+      <use href="#hw26" x="132" y="800" opacity="0.18"/>
+      <use href="#hw26" x="547" y="800" opacity="0.21"/>
+      <use href="#hw26" x="900" y="800" opacity="0.17"/>
+      <use href="#hw27" x="29" y="832" opacity="0.18"/>
+      <use href="#hw27" x="347" y="832" opacity="0.17"/>
+      <use href="#hw27" x="757" y="832" opacity="0.22"/>
+      <use href="#hw28" x="50" y="864" opacity="0.19"/>
+      <use href="#hw28" x="437" y="864" opacity="0.2"/>
+      <use href="#hw28" x="789" y="864" opacity="0.17"/>
+      <use href="#hw29" x="208" y="896" opacity="0.19"/>
+      <use href="#hw29" x="539" y="896" opacity="0.21"/>
+      <use href="#hw29" x="961" y="896" opacity="0.22"/>
+      <use href="#hw30" x="96" y="928" opacity="0.22"/>
+      <use href="#hw30" x="427" y="928" opacity="0.16"/>
+      <use href="#hw30" x="855" y="928" opacity="0.18"/>
+      <use href="#hw01" x="59" y="960" opacity="0.21"/>
+      <use href="#hw01" x="455" y="960" opacity="0.17"/>
+      <use href="#hw01" x="834" y="960" opacity="0.16"/>
+      <use href="#hw02" x="30" y="992" opacity="0.22"/>
+      <use href="#hw02" x="378" y="992" opacity="0.18"/>
+      <use href="#hw02" x="942" y="992" opacity="0.21"/>
+      <use href="#hw03" x="71" y="1024" opacity="0.19"/>
+      <use href="#hw03" x="744" y="1024" opacity="0.18"/>
+      <use href="#hw04" x="56" y="1056" opacity="0.21"/>
+      <use href="#hw04" x="411" y="1056" opacity="0.16"/>
+      <use href="#hw04" x="858" y="1056" opacity="0.2"/>
+      <use href="#hw05" x="81" y="1088" opacity="0.21"/>
+      <use href="#hw05" x="442" y="1088" opacity="0.18"/>
+      <use href="#hw05" x="824" y="1088" opacity="0.17"/>
+      <use href="#hw06" x="26" y="1120" opacity="0.19"/>
+      <use href="#hw06" x="338" y="1120" opacity="0.19"/>
+      <use href="#hw06" x="648" y="1120" opacity="0.2"/>
+      <use href="#hw07" x="105" y="1152" opacity="0.21"/>
+      <use href="#hw07" x="634" y="1152" opacity="0.21"/>
+      <use href="#hw07" x="879" y="1152" opacity="0.2"/>
+      <use href="#hw08" x="17" y="1184" opacity="0.21"/>
+      <use href="#hw08" x="345" y="1184" opacity="0.19"/>
+      <use href="#hw08" x="760" y="1184" opacity="0.2"/>
+      <use href="#hw09" x="130" y="1216" opacity="0.17"/>
+      <use href="#hw09" x="492" y="1216" opacity="0.21"/>
+      <use href="#hw09" x="961" y="1216" opacity="0.21"/>
+      <use href="#hw10" x="19" y="1248" opacity="0.2"/>
+      <use href="#hw10" x="436" y="1248" opacity="0.17"/>
+      <use href="#hw10" x="833" y="1248" opacity="0.21"/>
+      <use href="#hw11" x="112" y="1280" opacity="0.16"/>
+      <use href="#hw11" x="650" y="1280" opacity="0.19"/>
+      <use href="#hw11" x="923" y="1280" opacity="0.21"/>
+      <use href="#hw12" x="252" y="1312" opacity="0.19"/>
+      <use href="#hw12" x="652" y="1312" opacity="0.21"/>
+      <use href="#hw12" x="940" y="1312" opacity="0.18"/>
+      <use href="#hw13" x="169" y="1344" opacity="0.17"/>
+      <use href="#hw13" x="468" y="1344" opacity="0.2"/>
+      <use href="#hw13" x="800" y="1344" opacity="0.16"/>
+      <use href="#hw14" x="249" y="1376" opacity="0.2"/>
+      <use href="#hw14" x="557" y="1376" opacity="0.21"/>
+      <use href="#hw14" x="921" y="1376" opacity="0.21"/>
+      <use href="#hw15" x="216" y="1408" opacity="0.22"/>
+      <use href="#hw15" x="606" y="1408" opacity="0.22"/>
+      <use href="#hw15" x="900" y="1408" opacity="0.16"/>
+      <use href="#hw16" x="85" y="1440" opacity="0.2"/>
+      <use href="#hw16" x="417" y="1440" opacity="0.21"/>
+      <use href="#hw16" x="786" y="1440" opacity="0.17"/>
+      <use href="#hw17" x="12" y="1472" opacity="0.2"/>
+      <use href="#hw17" x="532" y="1472" opacity="0.2"/>
+      <use href="#hw17" x="942" y="1472" opacity="0.18"/>
+      <use href="#hw18" x="87" y="1504" opacity="0.19"/>
+      <use href="#hw18" x="585" y="1504" opacity="0.19"/>
+      <use href="#hw19" x="257" y="1536" opacity="0.17"/>
+      <use href="#hw19" x="578" y="1536" opacity="0.21"/>
+      <use href="#hw19" x="959" y="1536" opacity="0.2"/>
+      <use href="#hw20" x="92" y="1568" opacity="0.17"/>
+      <use href="#hw20" x="407" y="1568" opacity="0.21"/>
+      <use href="#hw20" x="817" y="1568" opacity="0.2"/>
+      <use href="#hw21" x="161" y="1600" opacity="0.19"/>
+      <use href="#hw21" x="552" y="1600" opacity="0.19"/>
+      <use href="#hw21" x="898" y="1600" opacity="0.21"/>
+      <use href="#hw22" x="188" y="1632" opacity="0.21"/>
+      <use href="#hw22" x="550" y="1632" opacity="0.19"/>
+      <use href="#hw22" x="861" y="1632" opacity="0.16"/>
+      <use href="#hw23" x="59" y="1664" opacity="0.17"/>
+      <use href="#hw23" x="430" y="1664" opacity="0.16"/>
+      <use href="#hw23" x="805" y="1664" opacity="0.18"/>
+      <use href="#hw24" x="18" y="1696" opacity="0.2"/>
+      <use href="#hw24" x="515" y="1696" opacity="0.16"/>
+      <use href="#hw24" x="796" y="1696" opacity="0.16"/>
+      <use href="#hw25" x="106" y="1728" opacity="0.2"/>
+      <use href="#hw25" x="569" y="1728" opacity="0.16"/>
+      <use href="#hw25" x="887" y="1728" opacity="0.22"/>
+      <use href="#hw26" x="97" y="1760" opacity="0.17"/>
+      <use href="#hw26" x="477" y="1760" opacity="0.2"/>
+      <use href="#hw26" x="874" y="1760" opacity="0.22"/>
+      <use href="#hw27" x="29" y="1792" opacity="0.16"/>
+      <use href="#hw27" x="493" y="1792" opacity="0.21"/>
+      <use href="#hw27" x="850" y="1792" opacity="0.17"/>
+      <use href="#hw28" x="20" y="1824" opacity="0.16"/>
+      <use href="#hw28" x="484" y="1824" opacity="0.2"/>
+      <use href="#hw28" x="858" y="1824" opacity="0.19"/>
+      <use href="#hw29" x="175" y="1856" opacity="0.16"/>
+      <use href="#hw29" x="683" y="1856" opacity="0.17"/>
+      <use href="#hw29" x="949" y="1856" opacity="0.2"/>
+      <use href="#hw30" x="52" y="1888" opacity="0.17"/>
+      <use href="#hw30" x="400" y="1888" opacity="0.18"/>
+      <use href="#hw30" x="729" y="1888" opacity="0.17"/>
+    </g>
   </g>
-  
-  <!-- 芯片图标 -->
-  <g transform="translate(1050, 150)" stroke="#24292e" stroke-width="2" fill="none">
-    <rect x="0" y="0" width="50" height="50" rx="3"/>
-    <circle cx="25" cy="25" r="10"/>
-    <line x1="10" y1="10" x2="40" y2="40"/>
-    <line x1="10" y1="40" x2="40" y2="10"/>
-     <animateTransform attributeName="transform" type="translate" values="1050, 150; 1048, 148; 1050, 150" dur="6s" repeatCount="indefinite"/>
+
+  <!-- 白色渐晕 -->
+  <rect width="1200" height="320" fill="url(#vignette)"/>
+
+  <!-- 海鸥剪影（左上角 3 只 + 右上角 3 只，双翼扇动） -->
+  <g stroke="#111111" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.75">
+    <!-- 左上（更靠近角落） -->
+    <g class="driftA"><g transform="translate(70,44) scale(1.0)">
+      <g class="gullBob" style="animation-duration: .95s;">
+      <path class="wingL" d="M 0 1 Q -6.5 -7 -13 2" style="animation-duration: .95s;"/>
+      <path class="wingR" d="M 0 1 Q 6.5 -7 13 2" style="animation-duration: .95s;"/></g></g></g>
+    <g class="driftB"><g transform="translate(145,28) scale(.75)">
+      <g class="gullBob" style="animation-duration: 1.15s; animation-delay: .3s;">
+      <path class="wingL" d="M 0 1 Q -6.5 -7 -13 2" style="animation-duration: 1.15s; animation-delay: .3s;"/>
+      <path class="wingR" d="M 0 1 Q 6.5 -7 13 2" style="animation-duration: 1.15s; animation-delay: .3s;"/></g></g></g>
+    <g class="driftC"><g transform="translate(220,56) scale(.6)">
+      <g class="gullBob" style="animation-duration: 1.3s; animation-delay: .6s;">
+      <path class="wingL" d="M 0 1 Q -6.5 -7 -13 2" style="animation-duration: 1.3s; animation-delay: .6s;"/>
+      <path class="wingR" d="M 0 1 Q 6.5 -7 13 2" style="animation-duration: 1.3s; animation-delay: .6s;"/></g></g></g>
+    <!-- 右上 -->
+    <g class="driftB"><g transform="translate(945,50) scale(1.45)">
+      <g class="gullBob" style="animation-duration: 1.05s; animation-delay: .2s;">
+      <path class="wingL" d="M 0 1 Q -6.5 -7 -13 2" style="animation-duration: 1.05s; animation-delay: .2s;"/>
+      <path class="wingR" d="M 0 1 Q 6.5 -7 13 2" style="animation-duration: 1.05s; animation-delay: .2s;"/></g></g></g>
+    <g class="driftA"><g transform="translate(1040,80) scale(1.05)">
+      <g class="gullBob" style="animation-duration: 1.25s; animation-delay: .5s;">
+      <path class="wingL" d="M 0 1 Q -6.5 -7 -13 2" style="animation-duration: 1.25s; animation-delay: .5s;"/>
+      <path class="wingR" d="M 0 1 Q 6.5 -7 13 2" style="animation-duration: 1.25s; animation-delay: .5s;"/></g></g></g>
+    <g class="driftC"><g transform="translate(1115,36) scale(.8)">
+      <g class="gullBob" style="animation-duration: .9s; animation-delay: .75s;">
+      <path class="wingL" d="M 0 1 Q -6.5 -7 -13 2" style="animation-duration: .9s; animation-delay: .75s;"/>
+      <path class="wingR" d="M 0 1 Q 6.5 -7 13 2" style="animation-duration: .9s; animation-delay: .75s;"/></g></g></g>
   </g>
 
-  <!-- 主标题 AomeNero (手绘感字体) -->
-  <text x="600" y="200" 
-        font-family="'Comic Sans MS', cursive, sans-serif"
-        font-weight="700" 
-        font-size="90" 
-        fill="#24292e" 
-        text-anchor="middle" 
-        dominant-baseline="central"
-        letter-spacing="3">
-    AomeNero
-  </text>
-  
-  <!-- 手绘副标题 -->
-  <text x="600" y="280" 
-        font-family="'Courier New', Courier, monospace"
-        font-weight="400" 
-        font-size="22" 
-        fill="#586069" 
-        text-anchor="middle" 
-        dominant-baseline="central"
-        letter-spacing="1">
-    ~~ Welcome to AomeNero GitHub ~~
-  </text>
+  <!-- 闪烁墨点 -->
+  <g fill="#111111">
+    <circle class="star" cx="90"  cy="50"  r="1.6" style="animation-duration: 2.6s;"/>
+    <circle class="star" cx="180" cy="270" r="1.2" style="animation-duration: 3.4s; animation-delay: .6s;"/>
+    <circle class="star" cx="330" cy="40"  r="1.1" style="animation-duration: 2.9s; animation-delay: 1.1s;"/>
+    <circle class="star" cx="480" cy="290" r="1.4" style="animation-duration: 3.8s; animation-delay: .3s;"/>
+    <circle class="star" cx="700" cy="35"  r="1.3" style="animation-duration: 2.4s; animation-delay: 1.5s;"/>
+    <circle class="star" cx="860" cy="285" r="1.2" style="animation-duration: 3.1s; animation-delay: .9s;"/>
+    <circle class="star" cx="1020" cy="55" r="1.7" style="animation-duration: 2.7s; animation-delay: 1.8s;"/>
+    <circle class="star" cx="1130" cy="250" r="1.3" style="animation-duration: 3.6s; animation-delay: .4s;"/>
+  </g>
+
+  <!-- 上升粒子 -->
+  <g fill="#111111">
+    <circle class="particle" cx="150"  cy="340" r="1.8" opacity="0.4" style="animation-duration: 10s;"/>
+    <circle class="particle" cx="380"  cy="350" r="1.3" opacity="0.3" style="animation-duration: 12s; animation-delay: 2.5s;"/>
+    <circle class="particle" cx="620"  cy="345" r="1.6" opacity="0.35" style="animation-duration: 11s; animation-delay: 4.5s;"/>
+    <circle class="particle" cx="830"  cy="355" r="1.2" opacity="0.3" style="animation-duration: 13s; animation-delay: 1.2s;"/>
+    <circle class="particle" cx="1060" cy="340" r="1.7" opacity="0.4" style="animation-duration: 9.5s; animation-delay: 3.4s;"/>
+  </g>
+
+  <!-- 水波浪：四层视差（后→前，浪高/速度/透明度各异） -->
+  <!-- 第 1 层：最远的大浪体（极淡填充） -->
+  <g style="animation: waveMove 12s linear infinite;">
+    <path d="M -240 246 Q -180 222 -120 246 T 0 246 T 120 246 T 240 246 T 360 246 T 480 246 T 600 246 T 720 246 T 840 246 T 960 246 T 1080 246 T 1200 246 T 1320 246 T 1440 246 L 1440 320 L -240 320 Z" fill="#111111" fill-opacity="0.05" stroke="none"/>
+  </g>
+  <!-- 第 2 层：中远浪线（反向缓行） -->
+  <g style="animation: waveMove 9.5s linear infinite reverse;">
+    <path d="M -240 258 Q -180 240 -120 258 T 0 258 T 120 258 T 240 258 T 360 258 T 480 258 T 600 258 T 720 258 T 840 258 T 960 258 T 1080 258 T 1200 258 T 1320 258 T 1440 258 L 1440 320 L -240 320 Z" fill="#111111" fill-opacity="0.035"/>
+    <path d="M -240 258 Q -180 240 -120 258 T 0 258 T 120 258 T 240 258 T 360 258 T 480 258 T 600 258 T 720 258 T 840 258 T 960 258 T 1080 258 T 1200 258 T 1320 258 T 1440 258" fill="none" stroke="#111111" stroke-opacity="0.18" stroke-width="1.3"/>
+  </g>
+  <!-- 第 3 层：中近浪（较快） -->
+  <g style="animation: waveMove 7s linear infinite;">
+    <path d="M -240 272 Q -180 256 -120 272 T 0 272 T 120 272 T 240 272 T 360 272 T 480 272 T 600 272 T 720 272 T 840 272 T 960 272 T 1080 272 T 1200 272 T 1320 272 T 1440 272 L 1440 320 L -240 320 Z" fill="#111111" fill-opacity="0.05"/>
+    <path d="M -240 272 Q -180 256 -120 272 T 0 272 T 120 272 T 240 272 T 360 272 T 480 272 T 600 272 T 720 272 T 840 272 T 960 272 T 1080 272 T 1200 272 T 1320 272 T 1440 272" fill="none" stroke="#111111" stroke-opacity="0.26" stroke-width="1.4"/>
+  </g>
+  <!-- 第 4 层：最近的小碎浪（最快、最深） -->
+  <g style="animation: waveMove 5s linear infinite reverse;">
+    <path d="M -240 288 Q -180 276 -120 288 T 0 288 T 120 288 T 240 288 T 360 288 T 480 288 T 600 288 T 720 288 T 840 288 T 960 288 T 1080 288 T 1200 288 T 1320 288 T 1440 288 L 1440 320 L -240 320 Z" fill="#111111" fill-opacity="0.07"/>
+    <path d="M -240 288 Q -180 276 -120 288 T 0 288 T 120 288 T 240 288 T 360 288 T 480 288 T 600 288 T 720 288 T 840 288 T 960 288 T 1080 288 T 1200 288 T 1320 288 T 1440 288" fill="none" stroke="#111111" stroke-opacity="0.38" stroke-width="1.6"/>
+  </g>
+
+  <!-- 小帆船（用户提供的 SVG 原样嵌入）：在波浪里来回摇曳 -->
+  <g class="boatMove">
+    <g class="boatRock">
+      <g transform="translate(-47, 222) scale(0.28)">
+        <path d="M0 0 C0.99 0.33 1.98 0.66 3 1 C3 1.99 3 2.98 3 4 C3.66 4 4.32 4 5 4 C5.53625 4.680625 6.0725 5.36125 6.625 6.0625 C8.51451056 8.39952622 10.10863623 10.02205294 12.37109375 11.91796875 C17.74994813 16.56960495 22.76526917 21.57921833 27.7902832 26.60498047 C29.42575882 28.23827448 31.06907708 29.8633847 32.71289062 31.48828125 C39.26117535 38.00120487 45.28837424 44.72733254 51 52 C52.16097617 53.43658771 53.3224031 54.87281131 54.484375 56.30859375 C71.30724384 77.44722413 84.47123496 100.36028405 96.25 124.625 C96.72840332 125.60315674 97.20680664 126.58131348 97.69970703 127.58911133 C98.13395996 128.50072021 98.56821289 129.4123291 99.015625 130.3515625 C99.40008789 131.15416504 99.78455078 131.95676758 100.18066406 132.78369141 C101 135 101 135 101 139 C91 137 91 137 88.92895508 136.49658203 C81.43798154 134.77911297 74.10201568 134.61486813 66.4375 134.625 C65.77558655 134.62521149 65.1136731 134.62542297 64.43170166 134.62564087 C48.3978556 134.67672566 36.98002818 137.75832159 22 144 C54.34 144 86.68 144 120 144 C107.33553308 156.66446692 90.8790246 164.59900227 74.25 170.8125 C73.5065332 171.09053467 72.76306641 171.36856934 71.99707031 171.6550293 C69.67859484 172.48831069 67.34671843 173.2498597 65 174 C64.19828873 174.26125671 63.39657745 174.52251343 62.5705719 174.79168701 C53.12583646 177.51863345 43.93969004 177.45537661 34.19921875 177.43359375 C32.39142157 177.4381672 30.58362613 177.44347618 28.77583313 177.44947815 C25.00290832 177.45836528 21.23019566 177.45603751 17.45727539 177.44604492 C12.66316947 177.43457431 7.86980229 177.45476011 3.07579327 177.48396206 C-0.6538495 177.50246249 -4.38331983 177.50200407 -8.11299706 177.49632454 C-9.87853212 177.49617294 -11.64408012 177.50208113 -13.40957069 177.51461601 C-27.57688459 177.60104203 -39.83160724 175.47825714 -53 170 C-53.886875 169.65324219 -54.77375 169.30648437 -55.6875 168.94921875 C-70.09997592 163.18798163 -84.48800412 155.55266289 -96 145 C-96 144.67 -96 144.34 -96 144 C-79.17 144 -62.34 144 -45 144 C-47.31 141.69 -49.62 139.38 -52 137 C-53.57837986 134.63895244 -54.97596008 132.41572495 -56.3125 129.9375 C-56.64572266 129.35162109 -56.97894531 128.76574219 -57.32226562 128.16210938 C-62.104756 119.5612634 -63.67525582 110.971873 -61.34765625 101.28515625 C-55.96327797 86.6572101 -43.72809194 75.64603979 -32.875 64.9375 C-27.12583274 59.2590989 -21.95757315 53.39158191 -17 47 C-16.43796875 46.34 -15.8759375 45.68 -15.296875 45 C-5.64611707 33.30211161 -4.08705216 17.6358024 -1.49316406 3.20214844 C-1 1 -1 1 0 0 Z " fill="#FBFBFB" transform="translate(156,31)"/>
+        <path d="M0 0 C0.99 0.33 1.98 0.66 3 1 C2.99555878 1.71980042 2.99111755 2.43960083 2.98654175 3.18121338 C2.94597981 10.06211636 2.9157744 16.94300082 2.89637566 23.82399368 C2.88606643 27.35911529 2.87215217 30.89413579 2.84912109 34.42919922 C2.74799735 50.37984685 2.83705893 66.16400078 5 82 C5.10067276 82.75409149 5.20134552 83.50818298 5.30506897 84.28512573 C6.82637658 95.50796086 10.05739987 105.57252807 14.29150391 116.0715332 C15.0100921 118.02746984 15.53152861 119.97099334 16 122 C12.56132002 118.07763757 10.4635819 114.17955035 8.4375 109.4375 C8.13231445 108.7256958 7.82712891 108.0138916 7.51269531 107.28051758 C5.00488182 101.27890687 3.25479759 95.38657473 2 89 C1.75113037 87.73865234 1.50226074 86.47730469 1.24584961 85.17773438 C-1.30387169 71.24830572 -1.54910996 57.44122677 -1.6875 43.3125 C-1.72076336 40.94203954 -1.7552609 38.57159607 -1.79101562 36.20117188 C-1.87486639 30.46756525 -1.94363264 24.73393936 -2 19 C-2.36460327 20.66023193 -2.36460327 20.66023193 -2.73657227 22.35400391 C-4.59208319 30.62694463 -6.59497949 38.55527418 -9.9375 46.375 C-10.28377441 47.21442139 -10.63004883 48.05384277 -10.98681641 48.91870117 C-12.85969063 53.42555012 -14.82698138 57.8822164 -16.875 62.3125 C-21.58686219 72.54533203 -22.5109034 81.20722288 -19 92 C-13.40612776 106.38649396 -3.5997102 115.01509779 9.16455078 122.89306641 C12.08053307 124.69989214 14.72756879 126.4076236 17 129 C2.82753114 124.60823196 -10.28659951 115.91393679 -18 103 C-23.49348211 92.36203347 -27.21636562 82.3461201 -24.3515625 70.265625 C-21.67301583 62.52760128 -17.76926115 55.25265137 -14 48 C-14.7425 49.051875 -15.485 50.10375 -16.25 51.1875 C-22.41553289 59.4033634 -29.6938909 66.80393425 -37.0625 73.9375 C-47.30739059 84.08308632 -56.9694664 95.17939716 -58.375 109.9375 C-58.23783884 120.20744181 -53.14135289 130.02257254 -47 138 C-46.52691406 137.61328125 -46.05382812 137.2265625 -45.56640625 136.828125 C-35.85346422 129.17894648 -25.47401272 125.60169509 -13.125 125.625 C-12.31144043 125.62516113 -11.49788086 125.62532227 -10.65966797 125.62548828 C-0.1564128 125.81770736 10.28508164 127.99801488 20 132 C21.56569853 120.79275324 22.34667772 109.78736633 22.31567383 98.47094727 C22.31250562 96.06676096 22.33613576 93.66380228 22.36132812 91.25976562 C22.4203454 76.83770608 20.30692202 62.95580364 16.6875 49 C16.47947754 48.18241211 16.27145508 47.36482422 16.05712891 46.52246094 C13.61210509 37.15677648 10.74270881 27.7975441 7.11816406 18.81445312 C4.90174049 13.29477853 4.90174049 13.29477853 6 10 C12.66139372 24.43026482 18.09526151 38.55038064 21.6875 54.0625 C21.89012451 54.93616211 22.09274902 55.80982422 22.30151367 56.70996094 C25.20078049 69.77782855 26.3504914 82.490527 26.31567383 95.83984375 C26.31251249 98.36502282 26.33607777 100.88902692 26.36132812 103.4140625 C26.41053264 116.06255287 25.23694377 127.97558808 21 140 C21.92039062 139.60167969 22.84078125 139.20335937 23.7890625 138.79296875 C46.81277939 129.03762535 73.29104366 126.77118476 97 136 C99.5 137.66796875 99.5 137.66796875 101 139 C91 137 91 137 88.92895508 136.49658203 C81.43798154 134.77911297 74.10201568 134.61486813 66.4375 134.625 C65.77558655 134.62521149 65.1136731 134.62542297 64.43170166 134.62564087 C48.3978556 134.67672566 36.98002818 137.75832159 22 144 C54.34 144 86.68 144 120 144 C107.33553308 156.66446692 90.8790246 164.59900227 74.25 170.8125 C73.5065332 171.09053467 72.76306641 171.36856934 71.99707031 171.6550293 C69.67859484 172.48831069 67.34671843 173.2498597 65 174 C64.19828873 174.26125671 63.39657745 174.52251343 62.5705719 174.79168701 C53.12583646 177.51863345 43.93969004 177.45537661 34.19921875 177.43359375 C32.39142157 177.4381672 30.58362613 177.44347618 28.77583313 177.44947815 C25.00290832 177.45836528 21.23019566 177.45603751 17.45727539 177.44604492 C12.66316947 177.43457431 7.86980229 177.45476011 3.07579327 177.48396206 C-0.6538495 177.50246249 -4.38331983 177.50200407 -8.11299706 177.49632454 C-9.87853212 177.49617294 -11.64408012 177.50208113 -13.40957069 177.51461601 C-27.57688459 177.60104203 -39.83160724 175.47825714 -53 170 C-53.886875 169.65324219 -54.77375 169.30648437 -55.6875 168.94921875 C-70.09997592 163.18798163 -84.48800412 155.55266289 -96 145 C-96 144.67 -96 144.34 -96 144 C-79.17 144 -62.34 144 -45 144 C-47.31 141.69 -49.62 139.38 -52 137 C-53.57837986 134.63895244 -54.97596008 132.41572495 -56.3125 129.9375 C-56.64572266 129.35162109 -56.97894531 128.76574219 -57.32226562 128.16210938 C-62.104756 119.5612634 -63.67525582 110.971873 -61.34765625 101.28515625 C-55.96327797 86.6572101 -43.72809194 75.64603979 -32.875 64.9375 C-27.12583274 59.2590989 -21.95757315 53.39158191 -17 47 C-16.43796875 46.34 -15.8759375 45.68 -15.296875 45 C-5.64611707 33.30211161 -4.08705216 17.6358024 -1.49316406 3.20214844 C-1 1 -1 1 0 0 Z " fill="#222222" transform="translate(156,31)"/>
+        <path d="M0 0 C5.9423684 2.12301778 9.55188255 4.98464534 13.9296875 9.46875 C14.88163498 10.42207214 14.88163498 10.42207214 15.85281372 11.39465332 C17.19033341 12.73819186 18.5230125 14.08656481 19.85107422 15.43945312 C21.85174105 17.4763202 23.86763289 19.49703244 25.88671875 21.515625 C33.03699567 28.7048775 39.76160627 35.99714704 46 44 C47.16045411 45.43700945 48.32185862 46.87325213 49.484375 48.30859375 C66.31880374 69.46174962 79.50462478 92.38454903 91.25 116.6875 C91.72840332 117.67403564 92.20680664 118.66057129 92.69970703 119.67700195 C93.35108643 121.04924927 93.35108643 121.04924927 94.015625 122.44921875 C94.40008789 123.25705811 94.78455078 124.06489746 95.18066406 124.8972168 C96 127 96 127 96 130 C95.14341797 129.72736328 95.14341797 129.72736328 94.26953125 129.44921875 C82.54070404 125.81309585 71.57987653 123.4562449 59.25 123.5625 C58.03078857 123.56862305 56.81157715 123.57474609 55.55541992 123.58105469 C43.24575184 123.79313564 31.7155587 125.54174251 20.6640625 131.265625 C19 132 19 132 16 132 C16.50008656 128.83983998 17.06126768 125.7180152 17.74072266 122.59082031 C20.00851525 111.90237399 20.47813364 101.65373846 20.375 90.75 C20.37101196 89.89348846 20.36702393 89.03697693 20.36291504 88.1545105 C20.29416015 75.56252284 19.80023508 63.32163207 17 51 C16.85546387 50.32146973 16.71092773 49.64293945 16.56201172 48.94384766 C13.26689849 33.62868681 8.25342328 18.88432783 1.3203125 4.84375 C0 2 0 2 0 0 Z " fill="#FCFCFC" transform="translate(161,39)"/>
+        <path d="M0 0 C11.2889616 -0.07042947 22.55611695 0.12821778 33.84070969 0.42041397 C57.0544217 1.0105386 80.25660514 1.16099733 103.47686386 1.12857056 C106.42920784 1.12493321 109.38154686 1.12336733 112.33389282 1.12231445 C141.23187097 1.1095123 170.11440077 0.92378883 199 0 C193.83973489 5.34976637 187.48147553 8.50589847 181 12 C180.40799805 12.31936523 179.81599609 12.63873047 179.20605469 12.96777344 C170.75718198 17.47352368 162.16440309 21.20667463 153 24 C152.22211624 24.24706696 151.44423248 24.49413391 150.64277649 24.74868774 C141.40659838 27.39743213 132.51320986 27.50897953 122.98828125 27.5390625 C121.24928102 27.55128826 119.51028261 27.56377546 117.77128601 27.57650757 C114.13450439 27.59887243 110.49793042 27.60852457 106.86108398 27.61083984 C103.18471074 27.61504252 99.50976917 27.64260904 95.83374023 27.69287109 C60.30626852 28.17020945 29.35723055 22.66020876 0 1 C0 0.67 0 0.34 0 0 Z " fill="#FAFAFA" transform="translate(68,178)"/>
+        <path d="M0 0 C0.99 0.33 1.98 0.66 3 1 C2.99555878 1.71980042 2.99111755 2.43960083 2.98654175 3.18121338 C2.94597981 10.06211636 2.9157744 16.94300082 2.89637566 23.82399368 C2.88606643 27.35911529 2.87215217 30.89413579 2.84912109 34.42919922 C2.74799735 50.37984685 2.83705893 66.16400078 5 82 C5.10067276 82.75409149 5.20134552 83.50818298 5.30506897 84.28512573 C6.82637658 95.50796086 10.05739987 105.57252807 14.29150391 116.0715332 C15.0100921 118.02746984 15.53152861 119.97099334 16 122 C12.56132002 118.07763757 10.4635819 114.17955035 8.4375 109.4375 C8.13231445 108.7256958 7.82712891 108.0138916 7.51269531 107.28051758 C5.00488182 101.27890687 3.25479759 95.38657473 2 89 C1.75113037 87.73865234 1.50226074 86.47730469 1.24584961 85.17773438 C-1.30387169 71.24830572 -1.54910996 57.44122677 -1.6875 43.3125 C-1.72076336 40.94203954 -1.7552609 38.57159607 -1.79101562 36.20117188 C-1.87486639 30.46756525 -1.94363264 24.73393936 -2 19 C-2.24306885 20.10682129 -2.4861377 21.21364258 -2.73657227 22.35400391 C-4.59208319 30.62694463 -6.59497949 38.55527418 -9.9375 46.375 C-10.28377441 47.21442139 -10.63004883 48.05384277 -10.98681641 48.91870117 C-12.85969063 53.42555012 -14.82698138 57.8822164 -16.875 62.3125 C-21.58686219 72.54533203 -22.5109034 81.20722288 -19 92 C-13.40612776 106.38649396 -3.5997102 115.01509779 9.16455078 122.89306641 C12.08053307 124.69989214 14.72756879 126.4076236 17 129 C2.82753114 124.60823196 -10.28659951 115.91393679 -18 103 C-23.49348211 92.36203347 -27.21636562 82.3461201 -24.3515625 70.265625 C-21.67301583 62.52760128 -17.76926115 55.25265137 -14 48 C-14.7425 49.051875 -15.485 50.10375 -16.25 51.1875 C-22.41553289 59.4033634 -29.6938909 66.80393425 -37.0625 73.9375 C-47.30739059 84.08308632 -56.9694664 95.17939716 -58.375 109.9375 C-58.34656288 115.5870085 -56.23871199 120.47096186 -54.19140625 125.66796875 C-53.06929491 128.80620146 -52.43511528 131.7041268 -52 135 C-57.20006817 130.76290742 -60.80753933 123.58337664 -62 117 C-63.1179477 103.47466548 -59.36063927 94.45079909 -51 84 C-45.27233555 77.32392358 -39.1322836 71.11144295 -32.875 64.9375 C-27.12583274 59.2590989 -21.95757315 53.39158191 -17 47 C-16.43796875 46.34 -15.8759375 45.68 -15.296875 45 C-5.64611707 33.30211161 -4.08705216 17.6358024 -1.49316406 3.20214844 C-1 1 -1 1 0 0 Z " fill="#0C0C0C" transform="translate(156,31)"/>
+        <path d="M0 0 C10.56 0 21.12 0 32 0 C32 0.33 32 0.66 32 1 C25.4 1 18.8 1 12 1 C12 1.66 12 2.32 12 3 C11.01 3.33 10.02 3.66 9 4 C41.62990802 23.47004237 68.70458397 30.18466155 106.44909668 29.71380615 C110.12026874 29.67853947 113.79090012 29.68463194 117.46219921 29.69121075 C121.04775264 29.69402751 124.6329751 29.67630598 128.2184391 29.65207863 C129.9066173 29.6420068 131.59483277 29.63676973 133.283041 29.63687706 C143.92257295 29.61868928 152.86801042 28.51462302 163 25 C164.63002759 24.47599992 166.26019514 23.95243457 167.890625 23.4296875 C181.54687392 18.6596992 194.05731978 12.15551946 206 4 C203.43863779 1.43863779 202.33438669 1.70333143 198.7734375 1.5859375 C197.2265625 1.52792969 197.2265625 1.52792969 195.6484375 1.46875 C194.02808594 1.42234375 194.02808594 1.42234375 192.375 1.375 C191.28703125 1.33632812 190.1990625 1.29765625 189.078125 1.2578125 C186.38558835 1.16333753 183.69306243 1.07777569 181 1 C181 0.67 181 0.34 181 0 C192.55 0 204.1 0 216 0 C203.33553308 12.66446692 186.8790246 20.59900227 170.25 26.8125 C169.5065332 27.09053467 168.76306641 27.36856934 167.99707031 27.6550293 C165.67859484 28.48831069 163.34671843 29.2498597 161 30 C160.19828873 30.26125671 159.39657745 30.52251343 158.5705719 30.79168701 C149.12583646 33.51863345 139.93969004 33.45537661 130.19921875 33.43359375 C128.39142157 33.4381672 126.58362613 33.44347618 124.77583313 33.44947815 C121.00290832 33.45836528 117.23019566 33.45603751 113.45727539 33.44604492 C108.66316947 33.43457431 103.86980229 33.45476011 99.07579327 33.48396206 C95.3461505 33.50246249 91.61668017 33.50200407 87.88700294 33.49632454 C86.12146788 33.49617294 84.35591988 33.50208113 82.59042931 33.51461601 C68.42311541 33.60104203 56.16839276 31.47825714 43 26 C42.113125 25.65324219 41.22625 25.30648437 40.3125 24.94921875 C25.90002408 19.18798163 11.51199588 11.55266289 0 1 C0 0.67 0 0.34 0 0 Z " fill="#121212" transform="translate(60,175)"/>
+        <path d="M0 0 C0.99781494 -0.00128906 1.99562988 -0.00257813 3.02368164 -0.00390625 C12.41880847 0.12775569 21.10733603 1.85320633 30.125 4.375 C29.465 8.335 28.805 12.295 28.125 16.375 C12.615 16.375 -2.895 16.375 -18.875 16.375 C-18.875 11.755 -18.875 7.135 -18.875 2.375 C-12.49300983 0.49794407 -6.63920452 -0.00892891 0 0 Z " fill="#FBFBFB" transform="translate(144.875,159.625)"/>
+        <path d="M0 0 C4.35235675 1.67541478 7.19793799 4.91004648 10.41796875 8.15234375 C11.0346492 8.76711075 11.65132965 9.38187775 12.28669739 10.01527405 C13.59276284 11.31997931 14.89630916 12.62721049 16.19750977 13.93676758 C18.15625263 15.90608396 20.12525071 17.86467421 22.09570312 19.82226562 C29.18968284 26.90797258 35.83229733 34.08366065 42 42 C43.1603915 43.43706002 44.32179098 44.87330691 45.484375 46.30859375 C62.0792972 67.16079975 75.17146718 89.75698388 86.8125 113.6875 C87.25166748 114.57880615 87.69083496 115.4701123 88.14331055 116.38842773 C88.53558838 117.21286377 88.92786621 118.0372998 89.33203125 118.88671875 C89.67983643 119.61076904 90.0276416 120.33481934 90.38598633 121.08081055 C91 123 91 123 90 126 C89.59273682 125.16976318 89.18547363 124.33952637 88.76586914 123.48413086 C78.22614434 101.77723584 78.22614434 101.77723584 66 81 C65.63165039 80.42427246 65.26330078 79.84854492 64.88378906 79.25537109 C52.22256046 59.49423836 37.81143411 41.3121804 22 24 C21.13632813 23.04351562 20.27265625 22.08703125 19.3828125 21.1015625 C13.76961025 14.90513143 7.99844184 8.92714803 2.01953125 3.08203125 C0 1 0 1 0 0 Z " fill="#2E2E2E" transform="translate(165,41)"/>
+        <path d="M0 0 C0 3.92477316 -1.17664876 4.65641968 -3.8125 7.5 C-4.63621094 8.39203125 -5.45992187 9.2840625 -6.30859375 10.203125 C-8.94568759 12.94355924 -11.6488944 15.59842103 -14.375 18.25 C-24.81958515 28.60644519 -34.93579312 39.82582777 -36.375 54.9375 C-36.34656288 60.5870085 -34.23871199 65.47096186 -32.19140625 70.66796875 C-31.06929491 73.80620146 -30.43511528 76.7041268 -30 80 C-35.20006817 75.76290742 -38.80753933 68.58337664 -40 62 C-41.1179477 48.47466548 -37.36063927 39.45079909 -29 29 C-23.15762992 22.19022449 -16.88329605 15.8004402 -10.5625 9.4375 C-9.97138428 8.84163086 -9.38026855 8.24576172 -8.77124023 7.63183594 C-5.98345669 4.85483145 -3.25046941 2.24418158 0 0 Z " fill="#171717" transform="translate(134,86)"/>
+        <path d="M0 0 C13.14773367 15.23013869 16.85328268 41.85050189 20 61 C20.19980469 62.19496094 20.39960938 63.38992187 20.60546875 64.62109375 C21.39957031 71.35910473 21.10323848 78.2251131 21.0625 85 C21.05747576 86.45702971 21.05291449 87.9140611 21.04882812 89.37109375 C21.03789388 92.9140977 21.02068 96.45703797 21 100 C20.34 100 19.68 100 19 100 C18.95512451 99.09459473 18.91024902 98.18918945 18.86401367 97.25634766 C17.80126705 72.96685631 17.80126705 72.96685631 14 49 C13.82597656 48.21447754 13.65195313 47.42895508 13.47265625 46.61962891 C10.3941174 32.9970945 6.38168063 19.69021226 1.3203125 6.671875 C0 3 0 3 0 0 Z " fill="#1A1A1A" transform="translate(161,41)"/>
+        <path d="M0 0 C0.66 0 1.32 0 2 0 C1.3541528 3.73911536 0.27120077 7.0780252 -1.0625 10.625 C-4.85977221 22.07265886 -3.09884469 31.14797946 2 42 C8.37034957 52.7440224 16.72257261 59.4483865 27.16455078 65.89306641 C30.08053307 67.69989214 32.72756879 69.4076236 35 72 C20.82753114 67.60823196 7.71340049 58.91393679 0 46 C-5.53295299 35.28559926 -9.35043949 25.08759032 -6.2109375 12.94921875 C-4.57721008 8.34110972 -2.76480357 4.05649658 0 0 Z " fill="#1A1A1A" transform="translate(138,88)"/>
+        <path d="M0 0 C0.495 0.43957031 0.99 0.87914062 1.5 1.33203125 C-8.5 -0.66796875 -8.5 -0.66796875 -10.57104492 -1.17138672 C-18.0621343 -2.88888234 -25.39790413 -3.05261885 -33.0625 -3.04296875 C-33.72408112 -3.0430896 -34.38566223 -3.04321045 -35.06729126 -3.04333496 C-45.76931272 -3.01552364 -55.36213676 -2.05488469 -65.5 1.33203125 C-67.21316406 1.904375 -67.21316406 1.904375 -68.9609375 2.48828125 C-71.50000576 3.38367056 -74.00594532 4.31932654 -76.5 5.33203125 C-76.32421875 3.4921875 -76.32421875 3.4921875 -75.5 1.33203125 C-56.7093528 -10.28460353 -18.84393493 -12.57243783 0 0 Z " fill="#171717" transform="translate(255.5,168.66796875)"/>
+        <path d="M0 0 C11.55 0 23.1 0 35 0 C31.05186986 3.94813014 27.73213552 6.81208253 23.1875 9.8125 C22.5373291 10.24264404 21.8871582 10.67278809 21.21728516 11.1159668 C-4.86516185 28 -4.86516185 28 -16 28 C-16 27.34 -16 26.68 -16 26 C-16.66 25.67 -17.32 25.34 -18 25 C-16.83726562 24.61070312 -15.67453125 24.22140625 -14.4765625 23.8203125 C-0.2969326 18.92064668 12.60725473 12.46286373 25 4 C22.43863779 1.43863779 21.33438669 1.70333143 17.7734375 1.5859375 C16.2265625 1.52792969 16.2265625 1.52792969 14.6484375 1.46875 C13.02808594 1.42234375 13.02808594 1.42234375 11.375 1.375 C10.28703125 1.33632812 9.1990625 1.29765625 8.078125 1.2578125 C5.38558835 1.16333753 2.69306243 1.07777569 0 1 C0 0.67 0 0.34 0 0 Z " fill="#1F1F1F" transform="translate(241,175)"/>
+        <path d="M0 0 C0.33 0 0.66 0 1 0 C1 6.27 1 12.54 1 19 C1.66 19 2.32 19 3 19 C3.13746234 24.58596948 2.72123323 29.65437455 1.625 35.125 C1.43550781 36.14013672 1.43550781 36.14013672 1.2421875 37.17578125 C0.45557361 41.24257504 -0.60350413 45.10195501 -2 49 C-1.34 49.33 -0.68 49.66 0 50 C-1.65 49.67 -3.3 49.34 -5 49 C-4.67 46.69 -4.34 44.38 -4 42 C-4.88042969 41.86722656 -5.76085937 41.73445313 -6.66796875 41.59765625 C-7.82941406 41.42105469 -8.99085938 41.24445313 -10.1875 41.0625 C-11.33605469 40.88847656 -12.48460937 40.71445313 -13.66796875 40.53515625 C-16.46325212 40.08620687 -19.22933586 39.57917838 -22 39 C-19 37 -19 37 -15.875 37.1875 C-11.43612294 38.11823229 -7.26086047 39.46377139 -3 41 C-1.09110553 27.35974439 -0.42744222 13.75981694 0 0 Z " fill="#2F2F2F" transform="translate(179,122)"/>
+        <path d="M0 0 C-0.33 0.99 -0.66 1.98 -1 3 C-3.48641716 3.88715839 -5.82114844 4.57751873 -8.375 5.1875 C-9.06078125 5.36474609 -9.7465625 5.54199219 -10.453125 5.72460938 C-13.37544872 6.46087576 -15.97578444 7 -19 7 C-19 6.34 -19 5.68 -19 5 C-44.08 5 -69.16 5 -95 5 C-95 5.66 -95 6.32 -95 7 C-96.65 6.67 -98.3 6.34 -100 6 C-100 5.34 -100 4.68 -100 4 C-98.46143341 3.99120064 -98.46143341 3.99120064 -96.89178467 3.98222351 C-87.18271724 3.924786 -77.47386927 3.85191615 -67.76502609 3.76428509 C-62.77468255 3.7197293 -57.78441787 3.68044128 -52.79394531 3.65356445 C-47.96973645 3.62738303 -43.14583351 3.58687777 -38.32181549 3.53681374 C-36.48965537 3.52024472 -34.65744246 3.50866885 -32.8252182 3.50238609 C-23.67122844 3.46784772 -15.16519952 3.3540657 -6.32843018 0.63825989 C-4 0 -4 0 0 0 Z " fill="#1D1D1D" transform="translate(225,201)"/>
+        <path d="M0 0 C2.20914 3.31371 2.22481553 4.3446021 2.125 8.1875 C2.10695312 9.08855469 2.08890625 9.98960938 2.0703125 10.91796875 C2.04710937 11.60503906 2.02390625 12.29210938 2 13 C1.34 12.67 0.68 12.34 0 12 C-0.1959375 12.99515625 -0.391875 13.9903125 -0.59375 15.015625 C-2.40073888 23.63799103 -4.83623715 31.75722277 -8.125 39.9375 C-8.47369141 40.80729492 -8.82238281 41.67708984 -9.18164062 42.57324219 C-11.72097458 48.72097458 -11.72097458 48.72097458 -14 51 C-14.66 50.34 -15.32 49.68 -16 49 C-15.01 46.69 -14.02 44.38 -13 42 C-13.30292969 42.48210937 -13.60585937 42.96421875 -13.91796875 43.4609375 C-16.51034045 47.36943637 -18.24588665 49.77751371 -23 51 C-21.49480077 47.4771933 -19.41817813 45.22263075 -16.75 42.5 C-6.00478166 30.70268163 -2.39252398 15.42548358 0 0 Z " fill="#1E1E1E" transform="translate(154,38)"/>
+        <path d="M0 0 C0.99 0 1.98 0 3 0 C2.4750756 3.25453126 1.57980893 6.17330943 0.4375 9.25 C-2.58719241 18.41436656 -0.69139429 24.78338372 2.80859375 33.66796875 C3.93070509 36.80620146 4.56488472 39.7041268 5 43 C-0.20006817 38.76290742 -3.80753933 31.58337664 -5 25 C-5.70886673 16.42387467 -4.88619428 9.69435253 -1 2 C-0.67 1.34 -0.34 0.68 0 0 Z " fill="#1D1D1D" transform="translate(99,123)"/>
+        <path d="M0 0 C0.33 0 0.66 0 1 0 C1.10957031 1.24652344 1.21914062 2.49304688 1.33203125 3.77734375 C2.96013619 21.61594101 5.56422771 37.39038728 12.29150391 54.0715332 C13.0100921 56.02746984 13.53152861 57.97099334 14 60 C10.56094824 56.07721349 8.46486456 52.17934653 6.4375 47.4375 C6.13303955 46.73149658 5.8285791 46.02549316 5.51489258 45.2980957 C3.00496367 39.31798198 1.2876866 33.35795256 0 27 C-0.3403125 25.70255859 -0.3403125 25.70255859 -0.6875 24.37890625 C-2.66806122 16.04817063 -1.35793707 8.32519879 0 0 Z " fill="#3D3D3D" transform="translate(158,93)"/>
+        <path d="M0 0 C0 3.96 0 7.92 0 12 C-5.98963731 12.44041451 -5.98963731 12.44041451 -9 12 C-11.5625 9.5 -11.5625 9.5 -13 7 C-4.89473684 0 -4.89473684 0 0 0 Z " fill="#F9F9F9" transform="translate(123,164)"/>
+        <path d="M0 0 C8.12095189 10.07310378 13.56890112 22.88280045 19.1875 34.4375 C19.68121094 35.43821533 20.17492187 36.43893066 20.68359375 37.4699707 C21.1321875 38.40671631 21.58078125 39.34346191 22.04296875 40.30859375 C22.44539795 41.14189209 22.84782715 41.97519043 23.26245117 42.83374023 C24 45 24 45 23 48 C22.59273682 47.16976318 22.18547363 46.33952637 21.76586914 45.48413086 C19.87142875 41.63191499 17.96946102 37.78352971 16.0625 33.9375 C15.7221875 33.25037933 15.381875 32.56325867 15.03125 31.85531616 C10.53419261 22.79692349 5.8908041 13.99084757 0.34375 5.51953125 C-0.0996875 4.68808594 -0.543125 3.85664062 -1 3 C-0.67 2.01 -0.34 1.02 0 0 Z " fill="#3C3C3C" transform="translate(232,119)"/>
+        <path d="M0 0 C-0.33 0.66 -0.66 1.32 -1 2 C-1.07092842 4.2072923 -1.08415025 6.41667452 -1.0625 8.625 C-1.05347656 9.81351563 -1.04445313 11.00203125 -1.03515625 12.2265625 C-1.02355469 13.14179688 -1.01195313 14.05703125 -1 15 C-1.33 15 -1.66 15 -2 15 C-2 11.04 -2 7.08 -2 3 C-3.60875 3.763125 -5.2175 4.52625 -6.875 5.3125 C-7.77992187 5.74175781 -8.68484375 6.17101562 -9.6171875 6.61328125 C-12.26449476 7.9199388 -12.26449476 7.9199388 -14 11 C-13.01 12.32 -12.02 13.64 -11 15 C-12 16 -12 16 -15.37890625 16.09765625 C-16.77347077 16.09098369 -18.16801743 16.07902532 -19.5625 16.0625 C-20.27341797 16.05798828 -20.98433594 16.05347656 -21.71679688 16.04882812 C-23.47790013 16.03700864 -25.23896036 16.01907263 -27 16 C-27 15.67 -27 15.34 -27 15 C-20.565 14.505 -20.565 14.505 -14 14 C-15.155 12.948125 -16.31 11.89625 -17.5 10.8125 C-20.93925747 7.40784271 -20.93925747 7.40784271 -21.4375 4.0625 C-21.293125 3.381875 -21.14875 2.70125 -21 2 C-20.401875 2.825 -19.80375 3.65 -19.1875 4.5 C-18.465625 5.325 -17.74375 6.15 -17 7 C-13.44577514 7 -13.10684151 6.47208088 -10.625 4.125 C-3.85633055 -1.92816528 -3.85633055 -1.92816528 0 0 Z " fill="#343434" transform="translate(125,161)"/>
+        <path d="M0 0 C0.81146484 -0.00773438 1.62292969 -0.01546875 2.45898438 -0.0234375 C7.49569159 -0.00717694 11.66413178 0.63538417 16.4375 2.25 C16.4375 2.58 16.4375 2.91 16.4375 3.25 C15.68130371 3.27505615 14.92510742 3.3001123 14.14599609 3.32592773 C10.70134541 3.44236886 7.25693592 3.56487662 3.8125 3.6875 C2.02779297 3.74647461 2.02779297 3.74647461 0.20703125 3.80664062 C-0.94667969 3.84853516 -2.10039062 3.89042969 -3.2890625 3.93359375 C-4.87581787 3.98858032 -4.87581787 3.98858032 -6.49462891 4.04467773 C-9.57177273 4.25062059 -12.5311809 4.69180821 -15.5625 5.25 C-15.5625 4.59 -15.5625 3.93 -15.5625 3.25 C-16.2225 2.92 -16.8825 2.59 -17.5625 2.25 C-11.57104211 0.51653572 -6.22226927 -0.05959077 0 0 Z " fill="#222222" transform="translate(143.5625,156.75)"/>
+        <path d="M0 0 C4.81760421 3.36523823 7.72722785 7.47374623 11 12.25 C11.50789062 12.97574219 12.01578125 13.70148438 12.5390625 14.44921875 C14.04750417 16.61905408 15.52778544 18.80545556 17 21 C17.50273437 21.73412109 18.00546875 22.46824219 18.5234375 23.22460938 C18.99007812 23.92908203 19.45671875 24.63355469 19.9375 25.359375 C20.35902344 25.98811523 20.78054687 26.61685547 21.21484375 27.26464844 C22 29 22 29 21 32 C20.10861328 30.74509766 20.10861328 30.74509766 19.19921875 29.46484375 C18.36207885 28.28899152 17.52483047 27.11321653 16.6875 25.9375 C16.24615723 25.31641357 15.80481445 24.69532715 15.35009766 24.05541992 C12.90022944 20.61933591 10.42106028 17.21030022 7.88671875 13.8359375 C7.38374268 13.16312744 6.8807666 12.49031738 6.36254883 11.79711914 C5.38263306 10.48976065 4.39691623 9.18672718 3.4050293 7.88842773 C0 3.33340843 0 3.33340843 0 0 Z " fill="#232323" transform="translate(210,89)"/>
+        <path d="M0 0 C0.66 0 1.32 0 2 0 C3.18817968 3.73310433 3.11362739 7.27491645 3.09765625 11.171875 C3.09553383 12.1955014 3.09553383 12.1955014 3.09336853 13.23980713 C3.08779084 15.40991684 3.07524254 17.5799217 3.0625 19.75 C3.05748211 21.22525892 3.05291971 22.70051947 3.04882812 24.17578125 C3.03782875 27.78388798 3.02057953 31.39193375 3 35 C2.34 35 1.68 35 1 35 C0.28874793 23.31514456 -0.14534014 11.70795574 0 0 Z " fill="#070707" transform="translate(179,106)"/>
+        <path d="M0 0 C8.15642491 -0.65895713 15.19547435 0.24191272 23.0625 2.3125 C24.29383667 2.63190552 24.29383667 2.63190552 25.55004883 2.95776367 C29.58949381 4.07971565 32.84962528 5.0886781 36 8 C26 6 26 6 23.86083984 5.50537109 C17.02848927 3.99242463 10.35798816 3.57863513 3.375 3.375 C1.72564453 3.31699219 1.72564453 3.31699219 0.04296875 3.2578125 C-2.63786459 3.16456612 -5.3187089 3.07876733 -8 3 C-8 2.67 -8 2.34 -8 2 C-5.36 1.67 -2.72 1.34 0 1 C0 0.67 0 0.34 0 0 Z " fill="#343434" transform="translate(221,162)"/>
+        <path d="M0 0 C0.33 0.66 0.66 1.32 1 2 C-0.07421875 4.75 -0.07421875 4.75 -1.6875 8 C-2.20699219 9.0725 -2.72648437 10.145 -3.26171875 11.25 C-5 14 -5 14 -6.82446289 14.89990234 C-9.59953557 16.30316545 -11.36432086 18.13951439 -13.546875 20.3515625 C-14.39121094 21.20234375 -15.23554687 22.053125 -16.10546875 22.9296875 C-17.41451172 24.26386719 -17.41451172 24.26386719 -18.75 25.625 C-19.63816406 26.5221875 -20.52632812 27.419375 -21.44140625 28.34375 C-23.63216969 30.55807004 -25.81812763 32.77692435 -28 35 C-28 32 -28 32 -26.58227539 30.28930664 C-25.92735107 29.66918701 -25.27242676 29.04906738 -24.59765625 28.41015625 C-23.87586182 27.7135791 -23.15406738 27.01700195 -22.41040039 26.29931641 C-21.63559326 25.56116699 -20.86078613 24.82301758 -20.0625 24.0625 C-12.36524658 16.56883538 -5.96564276 8.94846414 0 0 Z " fill="#DEDEDE" transform="translate(142,77)"/>
+        <path d="M0 0 C2.13419602 2.68120221 3.67869178 5.21588567 5.0078125 8.37109375 C5.35457031 9.19287109 5.70132813 10.01464844 6.05859375 10.86132812 C6.41050781 11.71146484 6.76242188 12.56160156 7.125 13.4375 C7.48464844 14.28376953 7.84429687 15.13003906 8.21484375 16.00195312 C9.89087745 20.00999626 11.24277114 23.70478236 12 28 C11.01 28.33 10.02 28.66 9 29 C8.40251953 27.19015625 8.40251953 27.19015625 7.79296875 25.34375 C7.25789435 23.72913954 6.72273348 22.11455773 6.1875 20.5 C5.92646484 19.70851563 5.66542969 18.91703125 5.39648438 18.1015625 C4.11104258 14.22936747 2.78146041 10.39598785 1.30078125 6.59375 C0 3 0 3 0 0 Z " fill="#323232" transform="translate(161,41)"/>
+        <path d="M0 0 C10.56 0 21.12 0 32 0 C32 0.33 32 0.66 32 1 C25.4 1 18.8 1 12 1 C12 1.66 12 2.32 12 3 C11.01 3.33 10.02 3.66 9 4 C9 4.66 9 5.32 9 6 C4.30535551 5.47837283 3.87485597 3.87485597 0 0 Z " fill="#272727" transform="translate(60,175)"/>
+        <path d="M0 0 C0 5.50418927 -5.30777531 9.23182765 -9 13 C-11.27545978 15.09820476 -13.59143637 17.05265068 -16 19 C-16.66 18.34 -17.32 17.68 -18 17 C-15.75417636 14.72500399 -13.50262096 12.45576416 -11.25 10.1875 C-10.61578125 9.54490234 -9.9815625 8.90230469 -9.328125 8.24023438 C-8.4 7.30727539 -8.4 7.30727539 -7.453125 6.35546875 C-6.88754883 5.78465576 -6.32197266 5.21384277 -5.73925781 4.62573242 C-3.92139169 2.92652264 -2.01504683 1.45724172 0 0 Z " fill="#141414" transform="translate(134,86)"/>
+        <path d="M0 0 C11.55 0 23.1 0 35 0 C29.375 5.625 29.375 5.625 26 6 C26.33 4.68 26.66 3.36 27 2 C18.09 1.67 9.18 1.34 0 1 C0 0.67 0 0.34 0 0 Z " fill="#2E2E2E" transform="translate(241,175)"/>
+        <path d="M0 0 C0.99 0.33 1.98 0.66 3 1 C3 7.93 3 14.86 3 22 C1 21 1 21 0.38110352 19.19433594 C0.00673442 17.03877576 -0.11421297 15.07611194 -0.09765625 12.890625 C-0.09443359 12.13652344 -0.09121094 11.38242188 -0.08789062 10.60546875 C-0.07951172 9.82816406 -0.07113281 9.05085938 -0.0625 8.25 C-0.05798828 7.45722656 -0.05347656 6.66445312 -0.04882812 5.84765625 C-0.03708565 3.89840492 -0.01915146 1.94919262 0 0 Z " fill="#202020" transform="translate(155,84)"/>
+        <path d="M0 0 C-0.33 0.99 -0.66 1.98 -1 3 C-6.3579607 5.21803143 -12.20142893 6.47015441 -18 6 C-15.53089438 2.29634157 -14.35484503 2.28981138 -10.125 1.3125 C-9.07570312 1.06113281 -8.02640625 0.80976563 -6.9453125 0.55078125 C-4 0 -4 0 0 0 Z " fill="#171717" transform="translate(225,201)"/>
+        <path d="M0 0 C2.20914 3.31371 2.22481553 4.3446021 2.125 8.1875 C2.10695312 9.08855469 2.08890625 9.98960938 2.0703125 10.91796875 C2.03550781 11.94857422 2.03550781 11.94857422 2 13 C1.34 12.67 0.68 12.34 0 12 C-1.32 17.61 -2.64 23.22 -4 29 C-6.40714492 24.18571016 -5.85999304 23.37223893 -4.25 18.4375 C-2.3552066 12.32423075 -0.98017337 6.31953881 0 0 Z " fill="#565656" transform="translate(154,38)"/>
+        <path d="M0 0 C0.33 0 0.66 0 1 0 C1.79645684 8.68991301 2.12852505 17.27457699 2 26 C0 25 0 25 -1.25 21.4375 C-2.75047978 14.32753427 -1.12862106 7.0755859 0 0 Z " fill="#343434" transform="translate(158,93)"/>
+        <path d="M0 0 C3.77788206 1.35598981 6.75747859 3.08160554 10 5.4375 C13.25512015 7.79237598 16.52960143 9.97353512 20 12 C19.01 12.495 19.01 12.495 18 13 C15.01111118 11.90485664 12.24548813 10.30474512 9.4375 8.8125 C8.64408203 8.41224609 7.85066406 8.01199219 7.03320312 7.59960938 C6.27845703 7.20193359 5.52371094 6.80425781 4.74609375 6.39453125 C4.05185303 6.03206299 3.3576123 5.66959473 2.64233398 5.29614258 C0.60020926 3.68448208 0.36311873 2.52715962 0 0 Z " fill="#252525" transform="translate(153,147)"/>
+        <path d="M0 0 C4.46527093 1.59473962 6.85507843 5.06903334 9.75 8.625 C10.25660156 9.23601562 10.76320312 9.84703125 11.28515625 10.4765625 C12.5296029 11.97929053 13.76564128 13.48897467 15 15 C14.01 16.485 14.01 16.485 13 18 C12.56429687 17.43152344 12.12859375 16.86304687 11.6796875 16.27734375 C8.72894585 12.45159863 5.76310295 8.68322982 2.5625 5.0625 C0 2 0 2 0 0 Z " fill="#282828" transform="translate(196,73)"/>
+        <path d="M0 0 C0 5.28 0 10.56 0 16 C-0.66 16 -1.32 16 -2 16 C-3.09506492 12.71480525 -3.09960608 10.26336585 -3.0625 6.8125 C-3.05347656 5.72582031 -3.04445312 4.63914062 -3.03515625 3.51953125 C-3.02355469 2.68808594 -3.01195312 1.85664062 -3 1 C-1 0 -1 0 0 0 Z " fill="#252525" transform="translate(134,103)"/>
+        <path d="M0 0 C1.32 0.99 2.64 1.98 4 3 C3.67 4.65 3.34 6.3 3 8 C-2.94 6.515 -2.94 6.515 -9 5 C-8.34 4.67 -7.68 4.34 -7 4 C-6.67 3.34 -6.34 2.68 -6 2 C-3.525 2.99 -3.525 2.99 -1 4 C-0.67 2.68 -0.34 1.36 0 0 Z " fill="#E1E1E1" transform="translate(173,155)"/>
+        <path d="M0 0 C0.66 0 1.32 0 2 0 C1.4474143 3.86809987 -0.25471374 5.33315049 -3 8 C-3.639375 9.03125 -4.27875 10.0625 -4.9375 11.125 C-7.14763097 14.20578863 -8.41373583 15.00381551 -12 16 C-10.43474036 12.32206751 -8.14603892 9.78787492 -5.4375 6.875 C-2.36280814 3.68492491 -2.36280814 3.68492491 0 0 Z " fill="#333333" transform="translate(143,73)"/>
+        <path d="M0 0 C8.57142857 0.85714286 8.57142857 0.85714286 12 3 C11.01 3 10.02 3 9 3 C9 3.66 9 4.32 9 5 C5.37 4.34 1.74 3.68 -2 3 C-1.34 2.67 -0.68 2.34 0 2 C0 1.34 0 0.68 0 0 Z " fill="#2A2A2A" transform="translate(116,202)"/>
+        <path d="M0 0 C0.66 0.33 1.32 0.66 2 1 C1.67 1.66 1.34 2.32 1 3 C0.92907158 5.2072923 0.91584975 7.41667452 0.9375 9.625 C0.94652344 10.81351563 0.95554687 12.00203125 0.96484375 13.2265625 C0.97644531 14.14179688 0.98804687 15.05703125 1 16 C0.67 16 0.34 16 0 16 C0 12.04 0 8.08 0 4 C-1.98 4.66 -3.96 5.32 -6 6 C-6.66 5.34 -7.32 4.68 -8 4 C-6.71349294 3.30289269 -5.42059335 2.61757124 -4.125 1.9375 C-3.40570313 1.55464844 -2.68640625 1.17179688 -1.9453125 0.77734375 C-1.30335937 0.52082031 -0.66140625 0.26429688 0 0 Z " fill="#4D4D4D" transform="translate(123,160)"/>
+        <path d="M0 0 C4.43887706 0.93073229 8.61413953 2.27627139 12.875 3.8125 C12.545 4.4725 12.215 5.1325 11.875 5.8125 C2.965 3.8325 2.965 3.8325 -6.125 1.8125 C-3.125 -0.1875 -3.125 -0.1875 0 0 Z " fill="#464646" transform="translate(163.125,159.1875)"/>
+        <path d="M0 0 C0.66 0 1.32 0 2 0 C3.38938077 1.96147874 4.7260411 3.96166576 6 6 C4.33333333 6 2.66666667 6 1 6 C0.67 10.29 0.34 14.58 0 19 C-0.33 19 -0.66 19 -1 19 C-1.02690104 16.20826945 -1.04679053 13.41679652 -1.0625 10.625 C-1.07087891 9.8309375 -1.07925781 9.036875 -1.08789062 8.21875 C-1.11328125 2.2265625 -1.11328125 2.2265625 0 0 Z " fill="#8A8A8A" transform="translate(159,35)"/>
+        <path d="M0 0 C0.66 0.33 1.32 0.66 2 1 C2 1.99 2 2.98 2 4 C-0.97 5.32 -3.94 6.64 -7 8 C-7 6.68 -7 5.36 -7 4 C-1.7265625 0.77734375 -1.7265625 0.77734375 0 0 Z " fill="#282828" transform="translate(249,189)"/>
+        <path d="M0 0 C0.99 0 1.98 0 3 0 C2.47229401 3.79948314 1.62859821 6.16920193 -1 9 C-1.99 9.33 -2.98 9.66 -4 10 C-2.8905928 6.51329166 -1.73662334 3.22515763 0 0 Z " fill="#232323" transform="translate(99,123)"/>
+        <path d="M0 0 C5.94 0 11.88 0 18 0 C18 0.33 18 0.66 18 1 C13.71 1 9.42 1 5 1 C5 1.66 5 2.32 5 3 C3.35 2.67 1.7 2.34 0 2 C0 1.34 0 0.68 0 0 Z " fill="#121212" transform="translate(125,205)"/>
+        <path d="M0 0 C0.33 0 0.66 0 1 0 C0.67 3.3 0.34 6.6 0 10 C0.66 10.33 1.32 10.66 2 11 C0.35 10.67 -1.3 10.34 -3 10 C-2.49287967 6.28111761 -1.88391785 3.26545761 0 0 Z " fill="#191919" transform="translate(177,161)"/>
+        <path d="M0 0 C3.2542015 2.83430453 4.5206753 4.68607774 5 9 C4.01 9.33 3.02 9.66 2 10 C0.39644899 6.49223216 -0.22036864 3.85645121 0 0 Z " fill="#2B2B2B" transform="translate(168,60)"/>
+        <path d="M0 0 C-1.46457397 3.86114956 -3.42164824 5.07990881 -7 7 C-7.99 7.66 -8.98 8.32 -10 9 C-8.13405729 4.41995879 -5.20913241 0 0 0 Z " fill="#1E1E1E" transform="translate(118,104)"/>
+        <path d="M0 0 C1.51953125 1.20703125 1.51953125 1.20703125 3 3 C3.07421875 5.26171875 3.07421875 5.26171875 2.6875 7.6875 C2.50767578 8.89986328 2.50767578 8.89986328 2.32421875 10.13671875 C2.21722656 10.75160156 2.11023438 11.36648437 2 12 C0.48046875 10.79296875 0.48046875 10.79296875 -1 9 C-1.07421875 6.73828125 -1.07421875 6.73828125 -0.6875 4.3125 C-0.56761719 3.50425781 -0.44773438 2.69601563 -0.32421875 1.86328125 C-0.21722656 1.24839844 -0.11023438 0.63351563 0 0 Z " fill="#2F2F2F" transform="translate(177,153)"/>
+        <path d="M0 0 C0.33 0 0.66 0 1 0 C1.33 3.63 1.66 7.26 2 11 C1.01 11.33 0.02 11.66 -1 12 C-1.33 9.69 -1.66 7.38 -2 5 C-1.67 5 -1.34 5 -1 5 C-0.67 3.35 -0.34 1.7 0 0 Z " fill="#4C4C4C" transform="translate(160,113)"/>
+        <path d="M0 0 C2.20914 3.31371 2.22481553 4.3446021 2.125 8.1875 C2.10695312 9.08855469 2.08890625 9.98960938 2.0703125 10.91796875 C2.03550781 11.94857422 2.03550781 11.94857422 2 13 C1.67 13 1.34 13 1 13 C1 11.35 1 9.7 1 8 C0.34 8 -0.32 8 -1 8 C-0.67 5.36 -0.34 2.72 0 0 Z " fill="#707070" transform="translate(154,38)"/>
+        <path d="M0 0 C3.125 -0.1875 3.125 -0.1875 6 0 C6 0.66 6 1.32 6 2 C3.29120665 3.35439668 0.99066732 3.06501451 -2 3 C-1.34 2.01 -0.68 1.02 0 0 Z " fill="#0B0B0B" transform="translate(209,204)"/>
+        <path d="M0 0 C0 0.33 0 0.66 0 1 C-0.969375 1.12375 -1.93875 1.2475 -2.9375 1.375 C-4.4534375 1.684375 -4.4534375 1.684375 -6 2 C-6.33 2.66 -6.66 3.32 -7 4 C-7.66 4 -8.32 4 -9 4 C-9 3.34 -9 2.68 -9 2 C-10.32 1.67 -11.64 1.34 -13 1 C-8.59085217 -0.10228696 -4.51617599 -0.07654536 0 0 Z " fill="#434343" transform="translate(214,162)"/>
+        <path d="M0 0 C2 3 2 3 2 7 C1.34 7 0.68 7 0 7 C-0.33 7.66 -0.66 8.32 -1 9 C-1.09765625 2.84765625 -1.09765625 2.84765625 -1 1 C-0.67 0.67 -0.34 0.34 0 0 Z " fill="#121212" transform="translate(179,99)"/>
+        <path d="M0 0 C0.93065133 2.60582371 1.14917407 3.64198224 0.0625 6.25 C-0.4634375 7.11625 -0.4634375 7.11625 -1 8 C-1.66 7.67 -2.32 7.34 -3 7 C-2.25 2.25 -2.25 2.25 0 0 Z " fill="#181818" transform="translate(135,97)"/>
+        <path d="M0 0 C2.97 0.495 2.97 0.495 6 1 C5.67 1.99 5.34 2.98 5 4 C3.02 3.34 1.04 2.68 -1 2 C-0.67 1.34 -0.34 0.68 0 0 Z " fill="#232323" transform="translate(97,196)"/>
+        <path d="M0 0 C0.66 0 1.32 0 2 0 C3.6875 2.3125 3.6875 2.3125 5 5 C4.67 5.99 4.34 6.98 4 8 C0 3.375 0 3.375 0 0 Z " fill="#1C1C1C" transform="translate(227,113)"/>
+        <path d="M0 0 C0 3 0 3 -2 5.1875 C-2.66 5.785625 -3.32 6.38375 -4 7 C-4.66 6.34 -5.32 5.68 -6 5 C-4.02 3.35 -2.04 1.7 0 0 Z " fill="#0E0E0E" transform="translate(134,86)"/>
+        <path d="M0 0 C0.33 0.66 0.66 1.32 1 2 C0.06421005 4.35981813 -0.93347808 6.69631264 -2 9 C-2.99 9 -3.98 9 -5 9 C-3.7508258 5.54074837 -2.32472205 2.85306797 0 0 Z " fill="#D2D2D2" transform="translate(142,77)"/>
+        <path d="M0 0 C1.0326802 2.78823655 1.04509293 3.8677274 0.0625 6.75 C-0.288125 7.4925 -0.63875 8.235 -1 9 C-2.1875 7.3125 -2.1875 7.3125 -3 5 C-1.625 2.25 -1.625 2.25 0 0 Z " fill="#121212" transform="translate(148,65)"/>
+        <path d="M0 0 C-1.25 1.5625 -1.25 1.5625 -3 3 C-5.1875 2.6875 -5.1875 2.6875 -7 2 C-5.26578631 -1.46842738 -3.40984787 -1.13661596 0 0 Z " fill="#171717" transform="translate(243,195)"/>
+        <path d="M0 0 C1.32 0.99 2.64 1.98 4 3 C3.67 4.65 3.34 6.3 3 8 C2.67 7.34 2.34 6.68 2 6 C1.34 6 0.68 6 0 6 C-1 3 -1 3 0 0 Z " fill="#BBBBBB" transform="translate(173,155)"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- 轨道光环 -->
+  <g style="animation: orbitPulse 5s ease-in-out infinite;">
+    <ellipse cx="600" cy="140" rx="430" ry="105" fill="none" stroke="#111111" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="6 14">
+      <animateTransform attributeName="transform" type="rotate" from="0 600 140" to="360 600 140" dur="40s" repeatCount="indefinite"/>
+    </ellipse>
+  </g>
+
+  <!-- 主标题：8 个字母独立报号表演 -->
+  <g filter="url(#glow)">
+    <text class="L L1" x="364" y="158" text-anchor="middle">A</text>
+    <text class="L L2" x="432" y="158" text-anchor="middle">o</text>
+    <text class="L L3" x="511" y="158" text-anchor="middle">m</text>
+    <text class="L L4" x="589" y="158" text-anchor="middle">e</text>
+    <text class="L L5" x="659" y="158" text-anchor="middle">N</text>
+    <text class="L L6" x="729" y="158" text-anchor="middle">e</text>
+    <text class="L L7" x="783" y="158" text-anchor="middle">r</text>
+    <text class="L L8" x="838" y="158" text-anchor="middle">o</text>
+  </g>
+
+  <!-- 副标题 + 打字光标 -->
+  <g style="animation: subtitleFade 1.2s ease 2.2s both;">
+    <text class="title" x="600" y="208" text-anchor="middle" font-size="19" font-weight="400" letter-spacing="4" fill="#666666">Welcome to AomeNero GitHub</text>
+  </g>
 
 </svg>

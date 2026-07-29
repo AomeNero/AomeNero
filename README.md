@@ -1,23 +1,40 @@
 <h1 align="center">
-  <img src="AomeNero.svg" alt="Marton Lederer" />
+  <img src="AomeNero.svg" alt="AomeNero" />
 </h1>
+<p align="center">
+  <i>"执念散尽皆释然，轻舟已过万重山。"</i>
+</p>
 
-## Hey! 👋
-I'm AomeNero, a full stack / AI software development engineer
+## 欢迎你的到来！
 
-- 
-
-
-+ a lot more ;)
+我是全栈 / AI 软件开发工程师 ，专注于 AI Agent、RAG、LLM 应用开发，欢迎大家一起交流。
 
 ## Skills
-- 👨‍💻 C/C++,C#,Python,TypeScript, JavaScript, Lua,  PHP,, etc...
-- ⚙️ QT,React, Svelte, Vue
-- 👁️ SASS, CSS, Stylus
-- 💽 MySQL, SQL, Mongo
-+ a lot more :D
+
+<img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Python&color=%233776AB&style=flat&logo=python&logoColor=%233776AB" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=JavaScript&color=%23F7DF1E&style=flat&logo=javascript&logoColor=%23F7DF1E" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=TypeScript&color=%233178C6&style=flat&logo=typescript&logoColor=%233178C6" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=C%2B%2B&color=%2300599C&style=flat&logo=cplusplus&logoColor=%2300599C" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=C%23&color=%23239120&style=flat&logo=csharp&logoColor=%23239120" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=HTML&color=%23E34F26&style=flat&logo=html5&logoColor=%23E34F26" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=CSS&color=%231572B6&style=flat&logo=css3&logoColor=%231572B6" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Lua&color=%232C2D72&style=flat&logo=lua&logoColor=%232C2D72" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=PHP&color=%23777BB4&style=flat&logo=php&logoColor=%23777BB4" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Bash&color=%234EAA25&style=flat&logo=gnubash&logoColor=%234EAA25" />
+
+<img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=React&color=%2361DAFB&style=flat&logo=react&logoColor=%2361DAFB" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Vue.js&color=%234FC08D&style=flat&logo=vuedotjs&logoColor=%234FC08D" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Svelte&color=%23FF3E00&style=flat&logo=svelte&logoColor=%23FF3E00" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Qt&color=%2341CD52&style=flat&logo=qt&logoColor=%2341CD52" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=FastAPI&color=%23009688&style=flat&logo=fastapi&logoColor=%23009688" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Docker&color=%232496ED&style=flat&logo=docker&logoColor=%232496ED" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Kubernetes&color=%23326CE5&style=flat&logo=kubernetes&logoColor=%23326CE5" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Nginx&color=%23009639&style=flat&logo=nginx&logoColor=%23009639" />
+
+<img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=MySQL&color=%234479A1&style=flat&logo=mysql&logoColor=%234479A1" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=MongoDB&color=%2347A248&style=flat&logo=mongodb&logoColor=%2347A248" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Redis&color=%23DC382D&style=flat&logo=redis&logoColor=%23DC382D" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=SQLite&color=%23003B57&style=flat&logo=sqlite&logoColor=%23003B57" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=PostgreSQL&color=%234169E1&style=flat&logo=postgresql&logoColor=%234169E1" />
+
+<img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Git&color=%23F05032&style=flat&logo=git&logoColor=%23F05032" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=GitHub&color=%23181717&style=flat&logo=github&logoColor=%23181717" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=GitLab&color=%23FC6D26&style=flat&logo=gitlab&logoColor=%23FC6D26" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=VS%20Code&color=%23007ACC&style=flat&logo=visualstudiocode&logoColor=%23007ACC" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Vim&color=%23019733&style=flat&logo=vim&logoColor=%23019733" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Linux&color=%23FCC624&style=flat&logo=linux&logoColor=%23FCC624" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Windows&color=%230078D6&style=flat&logo=windows&logoColor=%230078D6" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Anaconda&color=%2344A833&style=flat&logo=anaconda&logoColor=%2344A833" />
+
+<img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=PyTorch&color=%23EE4C2C&style=flat&logo=pytorch&logoColor=%23EE4C2C" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=TensorFlow&color=%23FF6F00&style=flat&logo=tensorflow&logoColor=%23FF6F00" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Hugging%20Face&color=%23FFD21E&style=flat&logo=huggingface&logoColor=%23FFD21E" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=OpenAI&color=%23412991&style=flat&logo=openai&logoColor=%23412991" /> <img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Rasa&color=%235A17EE&style=flat&logo=rasa&logoColor=%235A17EE" />
+
+## Project
+
+- [AomeRAG](https://github.com/AomeNero/AomeRAG) - 公司 & 个人私域知识库的 Agentic RAG 系统
+- [learn-agent-code](https://github.com/AomeNero/learn-agent-code)  - 学习 Agent 开发
+- [Iris](https://github.com/AomeNero/Iris) - Windows 极速桌面启动器 —— 快捷键秒搜文件、应用与书签
+- [sokit](https://github.com/AomeNero/sokit) - 简单、高效的跨平台 TCP/UDP 网络调试工具
+- [DSI-Calculation](https://github.com/AomeNero/DSI-Calculation) -  JC 显示接口信号速率计算器
+- a lot more ;)
 
 ## Contact
-- [@NeroAck](https://x.com/NeroAck) on Twitter
 
-  
+<a href="https://x.com/NeroAck"><img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Twitter&color=%231DA1F2&style=flat&logo=twitter&logoColor=%231DA1F2" /></a> [NeroAck](x.com/NeroAck)
+<a href="mailto:"><img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Email&color=%23D14836&style=flat&logo=gmail&logoColor=%23D14836" /></a> yotianya@gmail.com
+<a href=""><img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Blog&color=%23FF5722&style=flat&logo=blogger&logoColor=%23FF5722" /></a> @AomeNero
+<a href=""><img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=%E5%BE%AE%E4%BF%A1&color=%2307C160&style=flat&logo=wechat&logoColor=%2307C160" />
+</a> AomeNero
+<a href=""><img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Telegram&color=%2326A5E4&style=flat&logo=telegram&logoColor=%2326A5E4" /></a> @AomeNero

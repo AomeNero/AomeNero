@@ -32,4 +32,4 @@
 <a href="mailto:yotianya@gmail.com"><img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Email&color=%23D14836&style=flat&logo=gmail&logoColor=%23D14836" /></a> yotianya@gmail.com<br>
 <a href="https://www.aomenero.com"><img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Blog&color=%23FF5722&style=flat&logo=blogger&logoColor=%23FF5722" /></a> https://www.aomenero.com<br>
 <a href="https://t.me/AomeNero"><img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=Telegram&color=%2326A5E4&style=flat&logo=telegram&logoColor=%2326A5E4" /></a> https://t.me/AomeNero<br>
-<img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=%E5%BE%AE%E4%BF%A1&color=%2307C160&style=flat&logo=wechat&logoColor=%2307C160" /> <a href="wechat.png"><img src="wechat.png" width="100" /></a>
+<img src="https://img.shields.io/static/v1?label=&labelColor=505050&message=%E5%BE%AE%E4%BF%A1&color=%2307C160&style=flat&logo=wechat&logoColor=%2307C160" style="vertical-align: top" /> <a href="wechat.png"><img src="wechat.png" width="100" style="vertical-align: top" /></a>
